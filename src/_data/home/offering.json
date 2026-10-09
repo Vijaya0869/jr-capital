@@ -1,0 +1,21 @@
+{
+  "badge": "One operator, every stage",
+  "heading_lines": ["Investor capital in.", "Distributions out."],
+  "lede": "Founded by a chemical engineer and an electronics engineer who built a high-volume Ohio operating business before launching JR Capital. Every stage below is performed in-house, and operating data feeds straight back into underwriting.",
+  "stages": [
+    { "code": "SR-1", "title": "Source", "body": "On- and off-market" },
+    { "code": "UW-2", "title": "Underwrite", "body": "In-place income" },
+    { "code": "AQ-3", "title": "Acquire", "body": "At a discount" },
+    { "code": "CN-4", "title": "Renovate / Build", "body": "Our own crews" },
+    { "code": "PM-5", "title": "Lease & manage", "body": "Affiliated manager" },
+    { "code": "IR-6", "title": "Report", "body": "Quarterly, on time" }
+  ],
+  "pillars": [
+    { "title": "In-house", "body": "Acquisitions, construction and management under one roof" },
+    { "title": "Discount-first", "body": "We buy below our estimate of stabilized value" },
+    { "title": "Ohio-only", "body": "Columbus, Dayton and Cincinnati, where our teams work every day" },
+    { "title": "Aligned", "body": "Our own capital invested alongside our partners" }
+  ],
+  "note": "Offerings are made only to verified accredited investors through formal offering documents.",
+  "cta_label": "Join the investor list"
+}

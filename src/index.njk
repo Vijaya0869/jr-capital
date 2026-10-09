@@ -1,0 +1,271 @@
+---
+layout: base.njk
+home: true
+permalink: /
+---
+{%- from "macros.njk" import chapter, rowStyle -%}
+{%- set h = home.hero -%}
+{%- set o = home.offering -%}
+
+  <section id="top" data-gutter style="max-width:1560px;margin:0 auto;padding:0 64px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:72px;align-items:end;padding:64px 0 76px">
+      <div>
+        <p data-hero="kicker" style="margin:0 0 26px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc-ink)">{{ h.kicker }}</p>
+        <h1 data-hero="head" style="margin:0 0 18px;max-width:24ch;font-size:clamp(40px,4.4vw,76px);line-height:1.04;letter-spacing:-.02em;text-wrap:balance">{{ h.headline_before }}{% if h.headline_emphasis %}<em style="font-style:normal;color:var(--color-accent)">{{ h.headline_emphasis }}</em>{% endif %}{{ h.headline_after }}</h1>
+        <div data-hero="rule" style="width:112px;height:3px;background:var(--gold);margin:0 0 24px;transform-origin:left center"></div>
+        <p data-hero="lede" style="margin:0;max-width:54ch;font-size:18px;line-height:1.64">{{ h.lede }}</p>
+        <div data-hero="actions" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:28px">
+          <a href="{{ h.primary_cta.href }}" class="btn btn-primary" style="font-size:13px;letter-spacing:.08em;padding:12px 20px">{{ h.primary_cta.label }} <span data-arrow>&rarr;</span></a>
+          {%- if h.secondary_cta.label %}
+          <a href="{{ h.secondary_cta.href }}" class="btn btn-secondary" style="font-size:13px;letter-spacing:.08em;padding:12px 20px">{{ h.secondary_cta.label }}</a>
+          {%- endif %}
+        </div>
+      </div>
+      <div data-hero="plate" style="display:grid;align-self:end;border-top:1px solid var(--edge)">
+        {%- for f in h.facts %}
+        <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:20px;align-items:baseline;padding:16px 20px{{ ';border-bottom:1px solid var(--color-divider)' if not loop.last }}">
+          <span style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">{{ f.label }}</span>
+          <span style="font-family:var(--font-heading);font-size:19px;line-height:1.25;text-align:right">{{ f.value }}</span>
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="offering" style="background:var(--field);color:var(--field-ink)">
+    <div data-col data-gutter style="max-width:1560px;margin:0 auto;padding:0 64px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:56px;align-items:end;padding:72px 0 44px">
+        <div>
+          <span style="display:inline-flex;align-items:center;gap:9px;border:1px solid var(--field-rule);padding:6px 12px;font-size:10px;letter-spacing:.18em;text-transform:uppercase">
+            <span style="width:6px;height:6px;background:var(--color-accent-300)"></span>{{ o.badge }}
+          </span>
+          <h2 style="margin:20px 0 0;font-size:clamp(30px,3vw,44px);line-height:1.04;letter-spacing:-.018em;text-transform:uppercase">{% for line in o.heading_lines %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</h2>
+        </div>
+        <p style="margin:0;max-width:54ch;font-size:17px;line-height:1.62;opacity:.92">{{ o.lede }}</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border-top:1px solid var(--field-rule);border-left:1px solid var(--field-rule)">
+        {%- for s in o.stages %}
+        <article data-asset style="border-right:1px solid var(--field-rule);border-bottom:1px solid var(--field-rule);padding:28px 24px">
+          <p style="margin:0 0 18px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-variant-numeric:tabular-nums">{{ s.code }}</p>
+          <h3 style="margin:0;font-size:20px;letter-spacing:-.01em;text-transform:uppercase">{{ s.title }}</h3>
+          <p style="margin:8px 0 0;font-size:14.5px;line-height:1.5;opacity:.8">{{ s.body }}</p>
+        </article>
+        {%- endfor %}
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border-left:1px solid var(--field-rule)">
+        {%- for p in o.pillars %}
+        <div style="border-right:1px solid var(--field-rule);border-bottom:1px solid var(--field-rule);padding:34px 26px">
+          <p style="margin:0;font-family:var(--font-heading);font-size:32px;line-height:1;white-space:nowrap;color:var(--gold)">{{ p.title }}</p>
+          <p style="margin:12px 0 0;font-size:14.5px;line-height:1.5;opacity:.8">{{ p.body }}</p>
+        </div>
+        {%- endfor %}
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:32px;align-items:center;padding:40px 0 72px">
+        <p style="margin:0;max-width:66ch;font-size:13.5px;line-height:1.62;opacity:.74">{{ o.note }}</p>
+        <a href="#invest" class="btn" style="font-size:13px;letter-spacing:.08em;padding:12px 20px;justify-self:start;background:var(--field-ink);color:var(--field);border-color:var(--field-ink)">{{ o.cta_label }} <span data-arrow>&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+{%- set c = home.problem %}
+{% call chapter("problem", "01", c) %}<div style="display:grid">
+        {%- for g in c.gaps %}
+          <div style="{{ rowStyle(loop) }}">
+            <div><p style="margin:0 0 8px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">The gap</p><h4 style="margin:0 0 10px;font-size:19px;font-weight:600;line-height:1.2">{{ g.gap_title }}</h4><p style="margin:0;font-size:16px;line-height:1.6;color:var(--muted)">{{ g.gap_body }}</p></div>
+            <div><p style="margin:0 0 8px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-ink)">Our answer</p><h4 style="margin:0 0 10px;font-size:19px;font-weight:600;line-height:1.2">{{ g.answer_title }}</h4><p style="margin:0;font-size:16px;line-height:1.6">{{ g.answer_body }}</p></div></div>
+        {%- endfor %}
+        </div>{% endcall %}
+
+{%- set c = home.value %}
+{% call chapter("value", "02", c, true) %}<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:30px">
+        {%- for s in c.steps %}
+          <article style="padding:26px 0 0;border-top:1px solid var(--edge)">
+            <p style="margin:0 0 14px;font-family:var(--font-heading);font-size:32px;line-height:1;color:var(--gold-deep)">{{ loop.index }}</p>
+            <p style="margin:0 0 6px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-ink)">{{ s.kicker }}</p>
+            <h3 style="margin:0 0 10px;font-size:22px;letter-spacing:-.01em">{{ s.title }}</h3>
+            <p style="margin:0;font-size:16px;line-height:1.6">{{ s.body }}</p>
+          </article>
+        {%- endfor %}</div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:30px;margin-top:56px;padding-top:30px;border-top:1px solid var(--color-text)">
+        {%- for a in c.audiences %}
+          <div><p style="margin:0 0 10px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-ink)">{{ a.label }}</p><p style="margin:0;font-size:16px;line-height:1.6">{{ a.body }}</p></div>
+        {%- endfor %}
+        </div>{% endcall %}
+
+{%- set c = home.growth %}
+{% call chapter("growth", "03", c) %}<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:22px">
+        {%- for g in c.goals %}
+            <div style="padding:22px 0 0;border-top:1px solid var(--edge)">
+              <p style="margin:0 0 16px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Goal {{ loop.index | pad2 }}</p>
+              <p style="margin:0 0 12px;font-family:var(--font-heading);font-size:clamp(26px,3vw,36px);line-height:1;letter-spacing:-.01em;color:var(--gold-deep)">{{ g.word }}</p>
+              <p style="margin:0;font-size:15px;line-height:1.55;color:var(--muted)">{{ g.body }}</p>
+            </div>
+        {%- endfor %}
+        </div>
+        {%- if c.quote %}
+        <p style="margin:48px 0 0;padding-top:36px;border-top:1px solid var(--color-text);font-family:var(--font-heading);font-size:clamp(22px,2.8vw,32px);line-height:1.16;letter-spacing:-.01em;max-width:36ch">“{{ c.quote }}”</p>
+        {%- endif %}{% endcall %}
+
+{%- set c = home.approach %}
+{% call chapter("approach", "04", c, true) %}<div style="display:grid">
+        {%- for r in c.rules %}
+          <div style="{{ rowStyle(loop) }}">
+            <div><p style="margin:0 0 8px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-ink)">Rule {{ loop.index | pad2 }}</p><h4 style="margin:0;font-size:19px;font-weight:600;line-height:1.2">{{ r.title }}</h4></div>
+            <p style="margin:0;font-size:16px;line-height:1.6">{{ r.body }}</p></div>
+        {%- endfor %}
+        </div>{% endcall %}
+
+{%- set c = home.platform %}
+{% call chapter("platform", "05", c) %}
+        <div data-arms style="display:flex;flex-wrap:nowrap;min-height:268px;border-top:1px solid var(--edge);margin-bottom:44px">
+        {%- for a in c.arms %}
+            <div data-arm tabindex="0" style="border-right:1px solid var(--edge);border-bottom:1px solid var(--edge);padding:24px 20px">
+              <div data-arm-img style="position:absolute;inset:0"><img src="{{ a.image }}" alt="{{ a.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+              <div data-arm-scrim style="position:absolute;inset:0"></div>
+              <p data-arm-n style="position:relative;z-index:1;margin:0;font-family:var(--font-heading);font-size:21px;line-height:1.1;font-variant-numeric:tabular-nums;white-space:nowrap;transform-origin:left center">{{ loop.index | pad2 }}</p>
+              <div data-arm-body style="z-index:1">
+                <h4 style="margin:0 0 12px;font-size:21px"><span data-arm-t style="position:relative;display:inline-block">{{ a.title }}</span></h4>
+                <p style="margin:0;max-width:44ch;font-size:15px;line-height:1.6">{{ a.body }}</p>
+              </div>
+            </div>
+        {%- endfor %}
+        </div>
+        <p style="margin:0 0 12px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">{{ c.table_label }}</p>
+        <table class="table" style="font-size:15.5px">
+          <thead><tr><th>{{ c.table_left_heading }}</th><th>{{ c.table_right_heading }}</th></tr></thead>
+          <tbody>
+          {%- for row in c.comparison %}
+            <tr><td style="color:var(--muted)">{{ row.typical }}</td><td>{{ row.ours }}</td></tr>
+          {%- endfor %}
+          </tbody>
+        </table>
+        {%- if c.fees_body %}
+        <div style="margin-top:36px;max-width:72ch;padding:22px 0 0;border-top:1px solid var(--edge)">
+          <p style="margin:0 0 6px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc-ink)">{{ c.fees_label }}</p>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:var(--muted)">{{ c.fees_body }}</p>
+        </div>
+        {%- endif %}{% endcall %}
+
+{%- set c = home.strategies %}
+{% call chapter("strategies", "06", c, true) %}<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:30px">
+        {%- for s in c.strategies %}
+          <article style="padding:26px 0 0;border-top:1px solid var(--edge)">
+            <p style="margin:0 0 14px;font-family:var(--font-heading);font-size:32px;line-height:1;color:var(--gold-deep)">{{ s.code }}</p>
+            <p style="margin:0 0 6px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-ink)">{{ s.kicker }}</p>
+            <h3 style="margin:0 0 10px;font-size:22px;letter-spacing:-.01em">{{ s.title }}</h3>
+            <p style="margin:0;font-size:16px;line-height:1.6">{{ s.body }}</p>
+            {%- if s.bullets and s.bullets.length %}<ul style="margin:18px 0 0;padding:0;list-style:none;display:grid">{% for b in s.bullets %}<li data-criteria-item style="font-size:15.5px;line-height:1.5;padding:12px 0;border-top:1px solid var(--color-divider)">{{ b }}</li>{% endfor %}</ul>{% endif %}
+          </article>
+        {%- endfor %}</div>
+        {%- if c.vehicles and c.vehicles.length %}<div style="margin-top:56px"><p style="margin:0 0 20px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">{{ c.vehicles_label }}</p><div style="display:grid">
+        {%- for v in c.vehicles %}
+          <div style="{{ rowStyle(loop) }}">
+            <div><p style="margin:0;font-family:var(--font-heading);font-size:20px">{{ v.name }}</p><p style="margin:4px 0 0;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-ink)">{{ v.tag }}</p></div>
+            <p style="margin:0;font-size:16px;line-height:1.6">{{ v.body }}</p></div>
+        {%- endfor %}
+        </div></div>{% endif %}{% endcall %}
+
+{%- set c = home.markets %}
+{% call chapter("markets", "07", c) %}<div style="display:grid">
+        {%- for m in c.cities %}
+          <div style="{{ rowStyle(loop) }}">
+            <div><p style="margin:0;font-family:var(--font-heading);font-size:24px;letter-spacing:-.01em">{{ m.name }}</p><p style="margin:6px 0 0;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-ink)">{{ m.region }}</p></div>
+            <p style="margin:0;font-size:16px;line-height:1.6">{{ m.body }}</p></div>
+        {%- endfor %}
+        </div>{% endcall %}
+
+{%- set c = home.standards %}
+{% call chapter("standards", "08", c, true) %}<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));border-top:1px solid var(--edge)">
+        {%- for s in c.items %}
+          <div style="border-right:1px solid var(--edge);border-bottom:1px solid var(--edge);padding:28px">
+            <h4 style="margin:0 0 10px;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-ink)">{{ s.title }}</h4>
+            <p style="margin:0;font-size:15.5px;line-height:1.55">{{ s.body }}</p>
+          </div>
+        {%- endfor %}
+        </div>{% endcall %}
+
+{%- set c = home.process %}
+{% call chapter("process", "09", c) %}
+        <div class="tl" data-tl style="margin-top:0">
+          <div class="tl-rail" aria-hidden="true"><span class="tl-track"></span><span class="tl-fill" data-tl-fill></span></div>
+          <div class="tl-grid">
+          {%- for s in c.steps %}
+            <button class="tl-step" type="button" data-tl-step>
+              <span class="tl-node"><span class="tl-dot" aria-hidden="true"></span><span class="tl-ring" aria-hidden="true"></span><span class="tl-n">{{ loop.index | pad2 }}</span></span>
+              <span class="tl-t">{{ s.title }}</span>
+              <span class="tl-b">{{ s.body }}</span>
+            </button>
+          {%- endfor %}
+          </div>
+        </div>{% endcall %}
+
+{%- set c = home.team %}
+{% call chapter("team", "10", c, true) %}<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:30px">
+        {%- for p in c.people %}
+          <article style="padding:26px 0 0;border-top:1px solid var(--edge)">
+            {%- if p.photo %}
+            <img src="{{ p.photo }}" alt="{{ p.name }}" loading="lazy" style="display:block;width:120px;height:120px;object-fit:cover;margin:0 0 18px">
+            {%- endif %}
+            <h3 style="margin:0 0 8px;font-size:26px;letter-spacing:-.01em">{{ p.name }}</h3>
+            <p style="margin:0 0 18px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-ink)">{{ p.role }}</p>
+            <div style="display:grid;gap:14px">{% for para in p.bio %}<p style="margin:0;font-size:16px;line-height:1.6">{{ para }}</p>{% endfor %}</div>
+          </article>
+        {%- endfor %}</div>
+        {%- if c.note %}<p style="margin:44px 0 0;max-width:72ch;padding-top:22px;border-top:1px solid var(--edge);font-size:15px;line-height:1.6;color:var(--muted)">{{ c.note }}</p>{% endif %}{% endcall %}
+
+{%- set c = home.invest %}
+  <section id="invest" data-gutter style="max-width:1560px;margin:0 auto;padding:0 64px">
+    <div data-chapter style="display:grid;grid-template-columns:240px minmax(0,1fr);gap:56px;padding:76px 0 88px">
+      <div data-rail style="align-self:start">
+        <p style="margin:0;font-family:var(--font-heading);font-weight:700;font-size:clamp(42px,4.6vw,74px);line-height:.86;letter-spacing:-.01em;color:var(--gold-deep);font-variant-numeric:tabular-nums">11</p>
+        <p style="margin:22px 0 0;font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)">{{ c.label }}</p>
+      </div>
+      <div data-col style="min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px;align-items:start">
+        <div>
+          <h2 style="margin:0 0 22px;max-width:16ch;font-size:clamp(30px,3vw,44px);line-height:1.04;letter-spacing:-.018em;color:var(--color-accent-900)">{{ c.heading }}</h2>
+          <p style="margin:0 0 24px;max-width:48ch;font-size:17.5px;line-height:1.64">{{ c.lede }}</p>
+        </div>
+        <dl id="portal" style="margin:0;display:grid">
+          <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:12px 0;border-top:1px solid var(--color-text)">
+            <dt style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);align-self:center">Existing investors</dt>
+            <dd style="margin:0;font-size:16px"><a href="{{ site.portal_url }}">{{ c.portal_label }}</a></dd>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:12px 0;border-top:1px solid var(--color-divider)">
+            <dt style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);align-self:center">Email</dt>
+            <dd style="margin:0;font-size:16px"><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:12px 0;border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider)">
+            <dt style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);align-self:center">Office</dt>
+            <dd style="margin:0;font-size:16px">{{ site.address }}</dd>
+          </div>
+        </dl>
+        <div style="grid-column:1/-1;padding:34px 0 0;border-top:1px solid var(--edge)">
+          <p style="margin:0 0 6px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-ink)">{{ c.form_kicker }}</p>
+          <h3 style="margin:0 0 26px;font-size:24px;letter-spacing:-.01em">{{ c.form_heading }}</h3>
+          {#- Netlify Forms picks this form up at deploy time; submissions land in the Netlify dashboard and are emailed out. #}
+          <form name="investor-list" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" data-investor-form data-success="{{ c.success_message }}" data-email="{{ site.email }}" style="display:grid;gap:20px">
+            <input type="hidden" name="form-name" value="investor-list">
+            <input type="hidden" name="subject" value="Investor list sign-up">
+            <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+            <div class="dfield field" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:20px">
+              <div><label for="first">First name <span aria-hidden="true" style="color:var(--acc-ink)">*</span></label><input class="input" id="first" name="first" type="text" required autocomplete="given-name"></div>
+              <div><label for="last">Last name <span aria-hidden="true" style="color:var(--acc-ink)">*</span></label><input class="input" id="last" name="last" type="text" required autocomplete="family-name"></div>
+              <div><label for="email">Email <span aria-hidden="true" style="color:var(--acc-ink)">*</span></label><input class="input" id="email" name="email" type="email" required autocomplete="email"></div>
+            </div>
+            <div class="dfield field" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:20px">
+              <div><label for="phone">Phone (optional)</label><input class="input" id="phone" name="phone" type="tel" autocomplete="tel"></div>
+              <div><label for="range">Typical investment</label><select class="input" id="range" name="range"><option value="">Select a range</option>{% for r in c.ranges %}<option>{{ r }}</option>{% endfor %}</select></div>
+              <div><label for="interest">Most interested in</label><select class="input" id="interest" name="interest">{% for i in c.interests %}<option>{{ i }}</option>{% endfor %}</select></div>
+            </div>
+            <label class="dfield" for="accredited" style="display:flex;gap:12px;align-items:flex-start;font-size:14.5px;line-height:1.55;color:var(--muted);max-width:72ch"><input id="accredited" name="accredited" value="yes" type="checkbox" style="margin-top:4px;accent-color:var(--gold-deep)"><span>{{ c.accreditation_text }}</span></label>
+            <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+              <button class="btn btn-primary dfield" data-submit type="submit" style="font-size:13px;letter-spacing:.08em;padding:12px 20px">{{ c.button_label }} <span data-arrow>&rarr;</span></button>
+              <p class="dstatus" data-status style="font-size:14px" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,11 @@
+{
+  "label": "How it works",
+  "heading": "From first conversation to first distribution.",
+  "steps": [
+    { "title": "Join the list", "body": "Tell us about your goals and confirm whether you are an accredited investor." },
+    { "title": "Intro call", "body": "A 30-minute call with our founders about strategy, fit and your questions." },
+    { "title": "Review an offering", "body": "Receive the investment summary, private placement memorandum and operating agreement." },
+    { "title": "Invest", "body": "Verify accreditation, sign and fund securely through the investor portal." },
+    { "title": "Stay informed", "body": "Quarterly letters, distributions and K-1s, all in one place." }
+  ]
+}

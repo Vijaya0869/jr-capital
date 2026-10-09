@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" data-theme="{{ site.theme or 'light' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title or site.title }}</title>
+<meta name="description" content="{{ description or site.description }}">
+{% if noindex %}<meta name="robots" content="noindex">{% endif %}
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ title or site.title }}">
+<meta property="og:description" content="{{ description or site.description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/css/industry.css">
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+<div style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh">
+
+  <header style="position:sticky;top:0;z-index:20;background:var(--color-bg);border-bottom:1px solid var(--color-text)">
+    <div data-gutter style="max-width:1560px;margin:0 auto;padding:0 64px;display:flex;align-items:center;gap:26px;min-height:78px;flex-wrap:wrap">
+      <a href="/#top" style="display:grid;align-items:center;text-decoration:none;color:var(--color-text);margin-right:auto">
+        <span style="font-family:var(--font-heading);font-size:30px;line-height:1;letter-spacing:.02em;text-transform:uppercase">{{ site.name }}</span>
+      </a>
+      <nav style="display:flex;gap:22px;flex-wrap:wrap">
+        {%- for item in site.nav %}
+        <a href="/#{{ item.target }}" data-nav="{{ item.target }}" style="font-size:13.5px;letter-spacing:.06em;text-decoration:none;color:var(--color-text)">{{ item.label }}</a>
+        {%- endfor %}
+      </nav>
+    </div>
+  </header>
+
+{{ content | safe }}
+
+  <footer style="background:var(--field);color:var(--field-ink)">
+    <div data-gutter style="max-width:1560px;margin:0 auto;padding:64px 64px 80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:32px;align-items:start">
+      <div>
+        <p style="margin:0;font-family:var(--font-heading);font-size:21px;letter-spacing:.03em;text-transform:uppercase">{{ site.name }}</p>
+        <p style="margin:6px 0 0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.7">{{ site.address }}</p>
+        <nav style="display:flex;gap:16px;flex-wrap:wrap;margin-top:22px;font-size:13px"><a href="/legal/privacy.html" style="color:var(--field-ink)">Privacy policy</a><a href="/legal/terms.html" style="color:var(--field-ink)">Terms of use</a></nav>
+      </div>
+      <div id="disclosures" style="display:grid;gap:12px;max-width:80ch;font-size:12.5px;line-height:1.64;opacity:.78">
+        {%- for para in site.disclosures %}
+        <p style="margin:0">{{ para }}</p>
+        {%- endfor %}
+        <p style="margin:0">© {{ year }} {{ site.name }}. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+{%- if home %}
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+{%- endif %}
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

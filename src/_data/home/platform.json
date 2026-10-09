@@ -1,0 +1,22 @@
+{
+  "label": "Platform",
+  "heading": "One team from the first site visit to the final distribution.",
+  "lede": "Most sponsors hire out construction and management. We own those functions, which means fewer hand-offs, tighter cost control and one accountable team.",
+  "arms": [
+    { "title": "Acquisitions & underwriting", "body": "Deal sourcing through broker and direct-to-owner channels, underwriting, negotiation and due diligence.", "image": "/assets/uploads/arm-acquisitions.jpg", "alt": "Signing an acquisition contract" },
+    { "title": "Construction", "body": "In-house crews handle unit renovations, capital projects and ground-up builds on our schedule and budget.", "image": "/assets/uploads/arm-construction.jpg", "alt": "A model house on construction drawings" },
+    { "title": "Property management", "body": "JR Elite Rentals, our affiliated manager, runs leasing, collections and maintenance with the same reporting standards.", "image": "/assets/uploads/arm-operations.jpg", "alt": "Property management data overlay" },
+    { "title": "Asset management & reporting", "body": "Monthly budget-versus-actual reviews, quarterly investor letters and an online investor portal.", "image": "/assets/uploads/arm-development.jpg", "alt": "Housing growth trend overlay" }
+  ],
+  "table_label": "What vertical integration changes",
+  "table_left_heading": "Typical sponsor",
+  "table_right_heading": "JR Capital",
+  "comparison": [
+    { "typical": "Renovation bids from third-party contractors", "ours": "Priced and built by our own crews" },
+    { "typical": "Fee manager with many other clients", "ours": "Affiliated manager focused on our assets" },
+    { "typical": "Schedule depends on outside availability", "ours": "Crews scheduled around our business plan" },
+    { "typical": "Several firms share responsibility", "ours": "One team accountable end to end" }
+  ],
+  "fees_label": "Affiliate fees",
+  "fees_body": "Affiliate fees for construction and management are disclosed in each offering and benchmarked against third-party bids."
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Approach",
+  "heading": "We underwrite like engineers: margins of safety first, upside second.",
+  "lede": "Every deal has to survive conservative assumptions before we look at what could go right. These four rules decide whether we buy.",
+  "rules": [
+    { "title": "Buy at a discount", "body": "We target purchase prices meaningfully below our estimate of stabilized value. The discount is our first line of protection if anything goes wrong." },
+    { "title": "Underwrite what is real", "body": "We price deals on in-place income, not the seller’s pro forma, and test them against both market and stabilized cap rates." },
+    { "title": "Price capex with our own crews", "body": "Our construction team scopes and prices the renovation before we make an offer, so the budget comes from the people who will do the work." },
+    { "title": "Borrow conservatively", "body": "Moderate leverage, fixed or capped rates, and stress tests on interest rate and debt coverage. If a deal only works with aggressive rent growth, we walk away." }
+  ]
+}

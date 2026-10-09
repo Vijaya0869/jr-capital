@@ -1,0 +1,33 @@
+{
+  "label": "Strategies",
+  "heading": "Where we invest.",
+  "lede": "We stay in asset types where our construction and management teams give us a real edge.",
+  "strategies": [
+    {
+      "code": "MF",
+      "kicker": "Core strategy",
+      "title": "Value-add multifamily",
+      "body": "Class B and C apartment communities with dated interiors, below-market rents or under-managed operations.",
+      "bullets": ["Mid-size communities", "Interior and exterior renovations", "Operational improvements to grow income"]
+    },
+    {
+      "code": "BTR",
+      "kicker": "Development",
+      "title": "Build-to-rent & ground-up",
+      "body": "New rental communities and townhomes where building it ourselves creates a cost advantage over buying finished product.",
+      "bullets": ["Land entitled and planned in-house", "Built by our own construction team", "Leased and managed on completion"]
+    },
+    {
+      "code": "SFR",
+      "kicker": "Income",
+      "title": "Single-family rentals",
+      "body": "Renovated single-family homes managed in groups, so they run with the discipline of a small apartment community.",
+      "bullets": ["Central Ohio neighborhoods", "Renovated to a consistent standard", "Steady, diversified rental income"]
+    }
+  ],
+  "vehicles_label": "How you can invest",
+  "vehicles": [
+    { "name": "Single-asset offerings", "tag": "Vehicle A", "body": "Invest in one property at a time. Review each business plan and choose the deals that fit you." },
+    { "name": "Diversified funds", "tag": "Vehicle B", "body": "One commitment spread across several assets, markets and strategies, deployed by our team." }
+  ]
+}

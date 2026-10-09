@@ -1,0 +1,13 @@
+{
+  "label": "Standards",
+  "heading": "The commitments we make to every investor.",
+  "lede": "Institutional habits from day one, written down so you can hold us to them.",
+  "items": [
+    { "title": "We invest alongside you", "body": "The sponsor invests its own capital in every offering, so our results move with yours." },
+    { "title": "Simple terms", "body": "A preferred return, a clear split and no layers of hurdles you need a spreadsheet to follow." },
+    { "title": "Fees in plain view", "body": "Every fee, including affiliate fees, is disclosed up front and benchmarked against the market." },
+    { "title": "Quarterly letters", "body": "Performance, occupancy and business-plan progress, good news and bad, within about a month of quarter end." },
+    { "title": "K-1s by March 15", "body": "Books closed monthly so tax documents arrive on time for your filing." },
+    { "title": "Your data, secured", "body": "Subscriptions, documents and distributions handled through a secure investor portal, never by email." }
+  ]
+}

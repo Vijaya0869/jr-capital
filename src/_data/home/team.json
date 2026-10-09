@@ -1,0 +1,23 @@
+{
+  "label": "Leadership",
+  "heading": "Two engineers who build what they buy.",
+  "people": [
+    {
+      "name": "Raj Gumma",
+      "role": "Co-Founder · Chief Investment Officer",
+      "bio": [
+        "Raj leads acquisitions, underwriting and capital strategy. A chemical engineer by training, he spent his early career at the corporate level in the oil and gas industry before turning to real estate.",
+        "He has led acquisitions across Columbus, Dayton and Cincinnati, from renovation and new construction to multifamily."
+      ]
+    },
+    {
+      "name": "Jhansi Gumma",
+      "role": "Co-Founder · Chief Executive Officer",
+      "bio": [
+        "Jhansi runs the company’s operations, including the in-house construction team that renovates and builds for every project and the property management function.",
+        "She holds a bachelor’s degree in Electronics and Communication Engineering and brings an engineer’s control of budgets and schedules to every job site."
+      ]
+    }
+  ],
+  "note": "Supported by a full-time team across acquisitions, construction, leasing and finance, and by outside securities counsel, tax advisors and lenders."
+}

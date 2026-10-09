@@ -1,0 +1,16 @@
+{
+  "label": "Value creation",
+  "heading": "We create value at the purchase, in the build and through operations.",
+  "lede": "We don’t wait for the market to lift prices. Each stage of our process adds value we control, and the result is a stronger, higher-income property.",
+  "steps": [
+    { "kicker": "Buy right", "title": "Value captured on day one", "body": "We target purchases below our estimate of stabilized value, often from long-term owners, so investors start with built-in equity and a margin of safety." },
+    { "kicker": "Renovate", "title": "Forced appreciation, at our cost", "body": "Our crews upgrade units and systems at builder’s cost and on our schedule. Renovated homes earn higher rents, and higher income raises property value." },
+    { "kicker": "Operate", "title": "Income that compounds", "body": "Tighter leasing, collections, expense control and preventive maintenance lift net operating income year after year." },
+    { "kicker": "Capitalize", "title": "Returning capital", "body": "Once a property is stabilized, a refinance or sale can return investor capital, with conservative debt protecting the downside along the way." }
+  ],
+  "audiences": [
+    { "label": "For investors", "body": "Cash flow, appreciation we create rather than wait for, and the tax benefits of direct real estate ownership." },
+    { "label": "For residents", "body": "Renovated, safe homes and a manager who answers the phone and fixes things quickly." },
+    { "label": "For neighborhoods", "body": "Fresh capital in existing Ohio communities, improving housing without displacing the people who live there." }
+  ]
+}

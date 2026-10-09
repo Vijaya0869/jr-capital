@@ -1,0 +1,31 @@
+{
+  "label": "Why us",
+  "heading": "Good mid-size apartments are under-owned, under-managed and hard for investors to reach.",
+  "lede": "We built JR Capital to close four gaps we see every day in Ohio real estate.",
+  "gaps": [
+    {
+      "gap_title": "The middle of the market is overlooked",
+      "gap_body": "Mid-size apartment communities are too large for most local owners and too small for institutional funds. Many are held for decades and run below their potential.",
+      "answer_title": "We specialize in exactly this size",
+      "answer_body": "It is the segment where a focused, hands-on operator has the biggest advantage and the least competition."
+    },
+    {
+      "gap_title": "Renovations drift over budget",
+      "gap_body": "Sponsors who rely on outside contractors and fee managers lose control of cost, schedule and accountability.",
+      "answer_title": "We build and manage it ourselves",
+      "answer_body": "Our own crews price and complete the work, and our affiliated manager runs the property, so the business plan stays on track."
+    },
+    {
+      "gap_title": "Older housing needs reinvestment",
+      "gap_body": "Many Ohio apartment communities need new interiors, systems and better management, while working households need quality rentals they can afford.",
+      "answer_title": "We renovate to a durable standard",
+      "answer_body": "Upgraded homes and responsive management attract and keep good residents, which supports steady income for investors."
+    },
+    {
+      "gap_title": "Investors lack time and access",
+      "gap_body": "Busy professionals want real estate in their portfolio but don’t have the deal flow, local team or hours to buy and run apartments.",
+      "answer_title": "Passive ownership, institutional reporting",
+      "answer_body": "Investors own a share of professionally run communities and receive quarterly reporting, distributions and K-1s without managing anything."
+    }
+  ]
+}

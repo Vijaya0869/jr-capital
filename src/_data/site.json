@@ -1,0 +1,24 @@
+{
+  "name": "JR Capital",
+  "url": "https://jrcapitalgrp.com",
+  "title": "JR Capital | Ohio apartments, engineered from acquisition to exit",
+  "description": "JR Capital is a vertically integrated Ohio multifamily investment firm. We source, renovate, build and manage every asset with our own teams in Columbus, Dayton and Cincinnati.",
+  "theme": "light",
+  "address": "2945 Donnylane Blvd, Columbus, OH 43235",
+  "email": "raj.gumma@rrgp.io",
+  "portal_url": "#portal",
+  "nav": [
+    { "label": "Why us", "target": "problem" },
+    { "label": "Value creation", "target": "value" },
+    { "label": "Platform", "target": "platform" },
+    { "label": "Strategies", "target": "strategies" },
+    { "label": "Markets", "target": "markets" },
+    { "label": "Team", "target": "team" },
+    { "label": "Invest with us", "target": "invest" }
+  ],
+  "disclosures": [
+    "JR Capital is the investment management affiliate of R&R Grandeur Properties and JR Grand Homes LLC. Property management services are provided by JR Elite Rentals LLC, an affiliate.",
+    "This website is for informational purposes only and is not an offer to sell, or a solicitation of an offer to buy, any security. Any offering will be made only to qualified investors through a confidential private placement memorandum and related documents, which contain important information about risks, fees and conflicts of interest. Securities offered privately have not been registered with or approved by the SEC or any state regulator.",
+    "Investing in private real estate involves significant risk, including the possible loss of all invested capital. Investments are illiquid, and there is no assurance any investment objective will be achieved. Past performance and the experience of the sponsor are not indicative of future results. Consult your own legal, tax and financial advisors before investing."
+  ]
+}

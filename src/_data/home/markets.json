@@ -1,0 +1,10 @@
+{
+  "label": "Markets",
+  "heading": "Three metros we know street by street.",
+  "lede": "We only invest where our crews, managers and relationships already work every day.",
+  "cities": [
+    { "name": "Columbus", "region": "HQ · Central Ohio", "body": "Ohio’s capital and largest city, with state government, The Ohio State University and a growing technology and advanced-manufacturing base. Our headquarters and largest operating team." },
+    { "name": "Dayton", "region": "Southwest Ohio", "body": "Anchored by Wright-Patterson Air Force Base, major health systems and the University of Dayton, with lower entry prices than larger Midwest metros." },
+    { "name": "Cincinnati", "region": "Southwest Ohio", "body": "Home to Fortune 500 headquarters, the University of Cincinnati and a large healthcare cluster, with deep, diverse rental demand." }
+  ]
+}

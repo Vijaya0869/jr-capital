@@ -1,0 +1,13 @@
+{
+  "label": "Invest with us",
+  "heading": "Get first access to new offerings.",
+  "lede": "Join our investor list for our quarterly Ohio market letter and early notice when new opportunities open to qualified investors.",
+  "portal_label": "Investor portal",
+  "form_kicker": "Investor list",
+  "form_heading": "Join the investor list",
+  "ranges": ["$50,000–$100,000", "$100,000–$250,000", "$250,000–$500,000", "$500,000+"],
+  "interests": ["Single-asset multifamily offerings", "Diversified fund", "Build-to-rent / development", "Not sure yet"],
+  "accreditation_text": "I believe I am an accredited investor as defined by the SEC. Accreditation will be verified before any investment.",
+  "button_label": "Join the investor list",
+  "success_message": "Thank you. You are on the list."
+}

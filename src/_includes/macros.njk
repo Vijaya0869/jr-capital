@@ -1,0 +1,32 @@
+{#
+  A numbered chapter: the gold number + label rail, the heading column, and a
+  full-width body column filled by the caller. `band` switches to the tinted
+  full-bleed variant used on alternating sections.
+#}
+{% macro chapter(id, num, c, band=false) %}
+{%- if band %}
+  <section id="{{ id }}" style="background:var(--band)">
+    <div data-gutter style="max-width:1560px;margin:0 auto;padding:76px 64px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:56px">
+{%- else %}
+  <section id="{{ id }}" data-gutter style="max-width:1560px;margin:0 auto;padding:0 64px">
+    <div data-chapter style="display:grid;grid-template-columns:240px minmax(0,1fr);gap:56px;padding:76px 0">
+{%- endif %}
+      <div data-rail style="align-self:start">
+        <p style="margin:0;font-family:var(--font-heading);font-weight:700;font-size:clamp(42px,4.6vw,74px);line-height:.86;letter-spacing:-.01em;color:var(--gold-deep);font-variant-numeric:tabular-nums">{{ num }}</p>
+        <p style="margin:22px 0 0;font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)">{{ c.label }}</p>
+      </div>
+      <div data-col style="min-width:0">
+        <h2 style="margin:{{ '0 0 22px' if c.lede else '0' }};max-width:22ch;font-size:clamp(30px,3vw,44px);line-height:1.04;letter-spacing:-.018em;color:var(--color-accent-900)">{{ c.heading }}</h2>
+        {%- if c.lede %}
+        <p style="margin:0;max-width:58ch;font-size:17.5px;line-height:1.64">{{ c.lede }}</p>
+        {%- endif %}
+      </div>
+      <div data-col style="grid-column:1/-1;min-width:0">{{ caller() }}</div>
+    </div>
+  </section>
+{% endmacro %}
+
+{# Bordered rows: the first has a strong top rule, the last closes with a bottom rule. #}
+{% macro rowStyle(loop) -%}
+display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:32px;padding:30px 0;border-top:1px solid var({{ '--color-text' if loop.first else '--color-divider' }}){{ ';border-bottom:1px solid var(--color-divider)' if loop.last }}
+{%- endmacro %}

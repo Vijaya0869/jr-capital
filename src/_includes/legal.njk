@@ -1,0 +1,12 @@
+---
+layout: base.njk
+noindex: true
+---
+  <main data-gutter style="max-width:1560px;margin:0 auto;padding:0 64px">
+    <div style="padding:72px 0 96px;max-width:780px">
+      <p style="margin:0 0 24px"><a href="/" style="font-size:13px;letter-spacing:.08em">&larr; Back to {{ site.name }}</a></p>
+      <h1 style="margin:0 0 12px;font-size:clamp(34px,3.6vw,52px);line-height:1.05;color:var(--color-accent-900)">{{ heading }}</h1>
+      {%- if updated %}<p style="margin:0 0 32px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Last updated {{ updated }}</p>{% endif %}
+      <div class="prose">{{ content | safe }}</div>
+    </div>
+  </main>

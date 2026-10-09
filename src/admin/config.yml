@@ -1,0 +1,358 @@
+# Decap CMS — https://decapcms.org/docs/configuration-options/
+# Editors sign in with GitHub at https://jrcapitalgrp.com/admin/ . Every save is
+# a commit to `main`, and Netlify rebuilds and publishes the site in about a minute.
+
+backend:
+  name: github
+  repo: Vijaya0869/jr-capital
+  branch: main
+  commit_messages:
+    update: "Content: update {{collection}} “{{slug}}”"
+    uploadMedia: "Media: upload “{{path}}”"
+    deleteMedia: "Media: delete “{{path}}”"
+
+# For editing on your own computer: run `npm run cms` and `npm run dev`, then open
+# http://localhost:8080/admin/ . Ignored in production.
+local_backend: true
+
+site_url: https://jrcapitalgrp.com
+display_url: https://jrcapitalgrp.com
+logo_url: /assets/favicon.svg
+
+media_folder: src/assets/uploads
+public_folder: /assets/uploads
+
+editor:
+  preview: false
+
+collections:
+  # ───────────────────────────────── Homepage ─────────────────────────────────
+  - name: home
+    label: Homepage
+    description: Each entry is one section of the homepage, top to bottom.
+    files:
+      - name: hero
+        label: "Hero (top of page)"
+        file: src/_data/home/hero.json
+        fields:
+          - { label: Kicker (small text above headline), name: kicker, widget: string }
+          - { label: Headline — start, name: headline_before, widget: string }
+          - { label: Headline — highlighted word(s), name: headline_emphasis, widget: string, required: false, hint: "Shown in blue." }
+          - { label: Headline — end, name: headline_after, widget: string, required: false }
+          - { label: Intro paragraph, name: lede, widget: text }
+          - label: Primary button
+            name: primary_cta
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string, hint: "e.g. #invest to jump to a section" }
+          - label: Secondary button
+            name: secondary_cta
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string, required: false }
+              - { label: Link, name: href, widget: string, required: false }
+          - label: Fact rows (right-hand panel)
+            name: facts
+            widget: list
+            summary: "{{fields.label}} — {{fields.value}}"
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Value, name: value, widget: string }
+
+      - name: offering
+        label: "Operator band (navy)"
+        file: src/_data/home/offering.json
+        fields:
+          - { label: Badge, name: badge, widget: string }
+          - label: Heading lines
+            name: heading_lines
+            widget: list
+            hint: Each item starts on a new line.
+            field: { label: Line, name: line, widget: string }
+          - { label: Paragraph, name: lede, widget: text }
+          - label: Stages
+            name: stages
+            widget: list
+            summary: "{{fields.code}} {{fields.title}}"
+            fields:
+              - { label: Code, name: code, widget: string, hint: "e.g. SR-1" }
+              - { label: Title, name: title, widget: string }
+              - { label: Caption, name: body, widget: string }
+          - label: Pillars
+            name: pillars
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title (gold), name: title, widget: string }
+              - { label: Caption, name: body, widget: text }
+          - { label: Footnote, name: note, widget: text }
+          - { label: Button label, name: cta_label, widget: string }
+
+      - name: problem
+        label: "01 · Why us"
+        file: src/_data/home/problem.json
+        fields:
+          - { label: Section label, name: label, widget: string }
+          - { label: Heading, name: heading, widget: text }
+          - { label: Intro, name: lede, widget: text, required: false }
+          - label: Gap / answer rows
+            name: gaps
+            widget: list
+            summary: "{{fields.gap_title}}"
+            fields:
+              - { label: Gap — title, name: gap_title, widget: string }
+              - { label: Gap — text, name: gap_body, widget: text }
+              - { label: Our answer — title, name: answer_title, widget: string }
+              - { label: Our answer — text, name: answer_body, widget: text }
+
+      - name: value
+        label: "02 · Value creation"
+        file: src/_data/home/value.json
+        fields:
+          - { label: Section label, name: label, widget: string }
+          - { label: Heading, name: heading, widget: text }
+          - { label: Intro, name: lede, widget: text, required: false }
+          - label: Steps (numbered automatically)
+            name: steps
+            widget: list
+            summary: "{{fields.kicker}} — {{fields.title}}"
+            fields:
+              - { label: Kicker, name: kicker, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: body, widget: text }
+          - label: Who benefits
+            name: audiences
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Text, name: body, widget: text }
+
+      - name: growth
+        label: "03 · Growth plan"
+        file: src/_data/home/growth.json
+        fields:
+          - { label: Section label, name: label, widget: string }
+          - { label: Heading, name: heading, widget: text }
+          - { label: Intro, name: lede, widget: text, required: false }
+          - label: Goals (numbered automatically)
+            name: goals
+            widget: list
+            summary: "{{fields.word}}"
+            fields:
+              - { label: Word (gold), name: word, widget: string }
+              - { label: Text, name: body, widget: text }
+          - { label: Closing quote, name: quote, widget: text, required: false, hint: "Quotation marks are added automatically." }
+
+      - name: approach
+        label: "04 · Approach"
+        file: src/_data/home/approach.json
+        fields:
+          - { label: Section label, name: label, widget: string }
+          - { label: Heading, name: heading, widget: text }
+          - { label: Intro, name: lede, widget: text, required: false }
+          - label: Rules (numbered automatically)
+            name: rules
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: body, widget: text }
+
+      - name: platform
+        label: "05 · Platform"
+        file: src/_data/home/platform.json
+        fields:
+          - { label: Section label, name: label, widget: string }
+          - { label: Heading, name: heading, widget: text }
+          - { label: Intro, name: lede, widget: text, required: false }
+          - label: Panels (with photos)
+            name: arms
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: body, widget: text }
+              - { label: Photo, name: image, widget: image, hint: "Landscape photo; it is darkened behind the text." }
+              - { label: Photo description (for screen readers), name: alt, widget: string }
+          - { label: Table label, name: table_label, widget: string }
+          - { label: Table — left column heading, name: table_left_heading, widget: string }
+          - { label: Table — right column heading, name: table_right_heading, widget: string }
+          - label: Table rows
+            name: comparison
+            widget: list
+            summary: "{{fields.typical}} → {{fields.ours}}"
+            fields:
+              - { label: Left (typical sponsor), name: typical, widget: string }
+              - { label: Right (JR Capital), name: ours, widget: string }
+          - { label: Fee note — label, name: fees_label, widget: string, required: false }
+          - { label: Fee note — text, name: fees_body, widget: text, required: false }
+
+      - name: strategies
+        label: "06 · Strategies"
+        file: src/_data/home/strategies.json
+        fields:
+          - { label: Section label, name: label, widget: string }
+          - { label: Heading, name: heading, widget: text }
+          - { label: Intro, name: lede, widget: text, required: false }
+          - label: Strategies
+            name: strategies
+            widget: list
+            summary: "{{fields.code}} — {{fields.title}}"
+            fields:
+              - { label: Code (gold), name: code, widget: string, hint: "e.g. MF" }
+              - { label: Kicker, name: kicker, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: body, widget: text }
+              - label: Bullet points
+                name: bullets
+                widget: list
+                required: false
+                field: { label: Bullet, name: bullet, widget: string }
+          - { label: Investment vehicles — label, name: vehicles_label, widget: string, required: false }
+          - label: Investment vehicles
+            name: vehicles
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Tag, name: tag, widget: string }
+              - { label: Text, name: body, widget: text }
+
+      - name: markets
+        label: "07 · Markets"
+        file: src/_data/home/markets.json
+        fields:
+          - { label: Section label, name: label, widget: string }
+          - { label: Heading, name: heading, widget: text }
+          - { label: Intro, name: lede, widget: text, required: false }
+          - label: Cities
+            name: cities
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: City, name: name, widget: string }
+              - { label: Region, name: region, widget: string }
+              - { label: Text, name: body, widget: text }
+
+      - name: standards
+        label: "08 · Standards"
+        file: src/_data/home/standards.json
+        fields:
+          - { label: Section label, name: label, widget: string }
+          - { label: Heading, name: heading, widget: text }
+          - { label: Intro, name: lede, widget: text, required: false }
+          - label: Commitments
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: body, widget: text }
+
+      - name: process
+        label: "09 · How it works"
+        file: src/_data/home/process.json
+        fields:
+          - { label: Section label, name: label, widget: string }
+          - { label: Heading, name: heading, widget: text }
+          - label: Steps (numbered automatically)
+            name: steps
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: body, widget: text }
+
+      - name: team
+        label: "10 · Leadership"
+        file: src/_data/home/team.json
+        fields:
+          - { label: Section label, name: label, widget: string }
+          - { label: Heading, name: heading, widget: text }
+          - label: People
+            name: people
+            widget: list
+            summary: "{{fields.name}} — {{fields.role}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Photo, name: photo, widget: image, required: false, hint: "Optional square headshot." }
+              - label: Bio paragraphs
+                name: bio
+                widget: list
+                field: { label: Paragraph, name: paragraph, widget: text }
+          - { label: Note below team, name: note, widget: text, required: false }
+
+      - name: invest
+        label: "11 · Invest with us (form)"
+        file: src/_data/home/invest.json
+        fields:
+          - { label: Section label, name: label, widget: string }
+          - { label: Heading, name: heading, widget: text }
+          - { label: Intro, name: lede, widget: text }
+          - { label: Investor portal link text, name: portal_label, widget: string, hint: "The portal URL is under Site settings." }
+          - { label: Form kicker, name: form_kicker, widget: string }
+          - { label: Form heading, name: form_heading, widget: string }
+          - label: Investment range options
+            name: ranges
+            widget: list
+            field: { label: Option, name: option, widget: string }
+          - label: Interest options
+            name: interests
+            widget: list
+            field: { label: Option, name: option, widget: string }
+          - { label: Accreditation checkbox text, name: accreditation_text, widget: text }
+          - { label: Button label, name: button_label, widget: string }
+          - { label: Thank-you message, name: success_message, widget: string }
+
+  # ─────────────────────────────── Site settings ──────────────────────────────
+  - name: settings
+    label: Site settings
+    files:
+      - name: site
+        label: Contact, navigation & footer
+        file: src/_data/site.json
+        fields:
+          - { label: Company name, name: name, widget: string }
+          - { label: Website address, name: url, widget: string, hint: "No trailing slash." }
+          - { label: Browser tab / Google title, name: title, widget: string }
+          - { label: Google description, name: description, widget: text, hint: "About 150 characters." }
+          - { label: Colour theme, name: theme, widget: select, options: [light, dark] }
+          - { label: Office address, name: address, widget: string }
+          - { label: Contact email, name: email, widget: string }
+          - { label: Investor portal URL, name: portal_url, widget: string }
+          - label: Top navigation
+            name: nav
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Label, name: label, widget: string }
+              - label: Jumps to section
+                name: target
+                widget: select
+                options: [problem, value, growth, approach, platform, strategies, markets, standards, process, team, invest]
+          - label: Footer disclosures
+            name: disclosures
+            widget: list
+            hint: "Securities disclosures — change only with counsel's approval. The copyright line is added automatically."
+            field: { label: Paragraph, name: paragraph, widget: text }
+
+  # ──────────────────────────────── Legal pages ───────────────────────────────
+  - name: legal
+    label: Legal pages
+    files:
+      - name: privacy
+        label: Privacy policy
+        file: src/legal/privacy.md
+        fields: &legal
+          - { label: Heading, name: heading, widget: string }
+          - { label: Browser tab title, name: title, widget: string }
+          - { label: Last updated, name: updated, widget: string, required: false, hint: "e.g. October 9, 2026" }
+          - { label: Body, name: body, widget: markdown }
+      - name: terms
+        label: Terms of use
+        file: src/legal/terms.md
+        fields: *legal

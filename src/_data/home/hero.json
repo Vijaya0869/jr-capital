@@ -1,0 +1,16 @@
+{
+  "kicker": "Private real estate · Columbus · Dayton · Cincinnati",
+  "headline_before": "Ohio apartments, ",
+  "headline_emphasis": "engineered",
+  "headline_after": " from acquisition to exit.",
+  "lede": "JR Capital is a vertically integrated real estate investment firm. We source, renovate, build and manage every asset with our own teams, and we invest our own capital alongside our partners.",
+  "primary_cta": { "label": "Join the investor list", "href": "#invest" },
+  "secondary_cta": { "label": "See how we operate", "href": "#platform" },
+  "facts": [
+    { "label": "Focus", "value": "Value-add, mid-size multifamily" },
+    { "label": "Also", "value": "Build-to-rent and ground-up communities" },
+    { "label": "Markets", "value": "Columbus, Dayton and Cincinnati only" },
+    { "label": "Goal", "value": "A leading Ohio multifamily owner-operator" },
+    { "label": "Model", "value": "Acquisitions, construction and management in-house" }
+  ]
+}
