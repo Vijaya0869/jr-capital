@@ -41,6 +41,16 @@
       <div>
         <p style="margin:0"><span class="logo logo-on-field" role="img" aria-label="{{ site.name }}" style="font-size:52px"><span class="logo-jr" aria-hidden="true">JR</span><span class="logo-word" aria-hidden="true">Capital</span></span></p>
         <p style="margin:18px 0 0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.7">{{ site.address }}</p>
+        {%- if site.companies and site.companies.length %}
+        <nav aria-labelledby="footer-companies" style="margin-top:26px">
+          <p id="footer-companies" style="margin:0 0 10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">{{ site.companies_heading or 'Our companies' }}</p>
+          <ul style="margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:14px">
+            {%- for co in site.companies %}
+            <li><a href="{{ co.url }}" target="_blank" rel="noopener" style="color:var(--field-ink)">{{ co.name }}<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (opens in a new tab)</span></a></li>
+            {%- endfor %}
+          </ul>
+        </nav>
+        {%- endif %}
         <nav style="display:flex;gap:16px;flex-wrap:wrap;margin-top:22px;font-size:13px"><a href="/legal/privacy.html" style="color:var(--field-ink)">Privacy policy</a><a href="/legal/terms.html" style="color:var(--field-ink)">Terms of use</a></nav>
       </div>
       <div id="disclosures" style="display:grid;gap:12px;max-width:80ch;font-size:12.5px;line-height:1.64;opacity:.78">

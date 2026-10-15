@@ -139,3 +139,4 @@ header nav a[aria-current="page"]{color:var(--gold-deep)}
 .logo-jr{position:relative;font-family:"Playfair Display",Georgia,serif;font-weight:500;letter-spacing:-.01em;color:var(--logo-jr);padding-right:.2em}
 .logo-jr::after{content:"";position:absolute;right:.01em;bottom:.075em;width:.15em;height:.15em;border-radius:50%;background:var(--logo-gold)}
 .logo-word{margin:-.3em -.2em 0 .7em;padding-left:.32em;border-left:max(1px,.04em) solid var(--logo-gold);font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:500;font-size:.27em;letter-spacing:.2em;line-height:1.3;text-transform:uppercase;color:var(--logo-word)}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}

@@ -16,6 +16,10 @@
     { "label": "Team", "target": "team" },
     { "label": "Invest with us", "target": "invest" }
   ],
+  "companies_heading": "Our companies",
+  "companies": [
+    { "name": "R&R Grandeur Properties", "url": "https://rrgp.io" }
+  ],
   "disclosures": [
     "JR Capital is the investment management affiliate of R&R Grandeur Properties and JR Grand Homes LLC. Property management services are provided by JR Elite Rentals LLC, an affiliate.",
     "This website is for informational purposes only and is not an offer to sell, or a solicitation of an offer to buy, any security. Any offering will be made only to qualified investors through a confidential private placement memorandum and related documents, which contain important information about risks, fees and conflicts of interest. Securities offered privately have not been registered with or approved by the SEC or any state regulator.",

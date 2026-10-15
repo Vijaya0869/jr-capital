@@ -334,6 +334,15 @@ collections:
                 name: target
                 widget: select
                 options: [problem, value, growth, approach, platform, strategies, markets, standards, process, team, invest]
+          - { label: Our companies heading, name: companies_heading, widget: string, hint: "Shown above the company links in the footer." }
+          - label: Our companies (footer links)
+            name: companies
+            widget: list
+            summary: "{{fields.name}}"
+            hint: "Sister companies linked in the footer. Links open in a new tab."
+            fields:
+              - { label: Company name, name: name, widget: string }
+              - { label: Website, name: url, widget: string, hint: "Full address, e.g. https://rrgp.io" }
           - label: Footer disclosures
             name: disclosures
             widget: list
