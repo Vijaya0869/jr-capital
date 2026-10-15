@@ -3,6 +3,14 @@
   full-width body column filled by the caller. `band` switches to the tinted
   full-bleed variant used on alternating sections.
 #}
+{# Chapter number with the gold underline that draws in, then the label. #}
+{% macro rail(num, label) %}
+      <div data-rail style="align-self:start">
+        <div class="rail-n"><p style="margin:0;font-family:var(--font-heading);font-weight:700;font-size:clamp(42px,4.6vw,74px);line-height:.86;letter-spacing:-.01em;color:var(--gold-deep);font-variant-numeric:tabular-nums">{{ num }}</p><span class="rail-line" aria-hidden="true"></span></div>
+        <p class="rail-l" style="margin:18px 0 0;font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)">{{ label }}</p>
+      </div>
+{%- endmacro %}
+
 {% macro chapter(id, num, c, band=false) %}
 {%- if band %}
   <section id="{{ id }}" style="background:var(--band)">
@@ -11,10 +19,7 @@
   <section id="{{ id }}" data-gutter style="max-width:1560px;margin:0 auto;padding:0 64px">
     <div data-chapter style="display:grid;grid-template-columns:240px minmax(0,1fr);gap:56px;padding:76px 0">
 {%- endif %}
-      <div data-rail style="align-self:start">
-        <p style="margin:0;font-family:var(--font-heading);font-weight:700;font-size:clamp(42px,4.6vw,74px);line-height:.86;letter-spacing:-.01em;color:var(--gold-deep);font-variant-numeric:tabular-nums">{{ num }}</p>
-        <p style="margin:22px 0 0;font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)">{{ c.label }}</p>
-      </div>
+      {{ rail(num, c.label) }}
       <div data-col style="min-width:0">
         <h2 style="margin:{{ '0 0 22px' if c.lede else '0' }};max-width:22ch;font-size:clamp(30px,3vw,44px);line-height:1.04;letter-spacing:-.018em;color:var(--color-accent-900)">{{ c.heading }}</h2>
         {%- if c.lede %}

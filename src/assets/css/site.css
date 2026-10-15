@@ -140,3 +140,49 @@ header nav a[aria-current="page"]{color:var(--gold-deep)}
 .logo-jr::after{content:"";position:absolute;right:.01em;bottom:.075em;width:.15em;height:.15em;border-radius:50%;background:var(--logo-gold)}
 .logo-word{margin:-.3em -.2em 0 .7em;padding-left:.32em;border-left:max(1px,.04em) solid var(--logo-gold);font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:500;font-size:.27em;letter-spacing:.2em;line-height:1.3;text-transform:uppercase;color:var(--logo-word)}
 .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* ── Open layouts (fewer lines and boxes) ─────────────────────────────────── */
+/* Dark band: six stages in rows of 3 (all 6 across on wide screens), four traits 2×2 (4 across). */
+.stages{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 32px;padding:34px 0 0}
+.traits{display:grid;grid-template-columns:minmax(0,1fr);gap:32px;padding:52px 0 0}
+@media (min-width:640px){.stages{grid-template-columns:repeat(3,minmax(0,1fr))}.traits{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1280px){.stages{grid-template-columns:repeat(6,minmax(0,1fr))}.traits{grid-template-columns:repeat(4,minmax(0,1fr))}}
+/* 02 Value creation: 2×2, or all 4 on one line from 1280px. */
+.quad{display:grid;grid-template-columns:minmax(0,1fr);gap:40px 30px}
+@media (min-width:640px){.quad{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1280px){.quad{grid-template-columns:repeat(4,minmax(0,1fr))}}
+/* 08 Standards: open columns, 3 across on wide screens. */
+.standards{display:grid;grid-template-columns:minmax(0,1fr);gap:40px 36px}
+@media (min-width:640px){.standards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1100px){.standards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* 06 bullets: gold squares instead of rules. */
+.squares{gap:4px}
+.squares li{position:relative;padding:6px 0 6px 22px}
+.squares li::before{content:"";position:absolute;left:0;top:calc(6px + .75em - 4px);width:8px;height:8px;background:var(--gold);transition:transform .36s cubic-bezier(.34,1.56,.64,1) calc(var(--i,0) * 90ms)}
+.squares [data-criteria-item]:hover{padding-left:30px}
+.squares.is-waiting li::before{transform:scale(0)}
+/* Chapter numbers: short gold line under the number; on narrow screens the label sits beside it. */
+.rail-line{display:block;width:44px;height:2px;margin-top:14px;background:var(--gold);transform-origin:left center;transition:transform .7s cubic-bezier(.22,.61,.36,1) .25s}
+[data-rail][data-reveal]:not(.is-in) .rail-line{transform:scaleX(0)}
+@media (max-width:940px){[data-rail]{display:flex;align-items:center;gap:18px}[data-rail] .rail-l{margin:0 !important}}
+
+/* ── Micro-animations ─────────────────────────────────────────────────────── */
+/* Scroll progress along the bottom of the header. */
+.scroll-progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left center;pointer-events:none}
+/* Dark band: gold line draws across above the stages; square markers on wide screens. */
+.stages::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--gold);transform-origin:left center;transition:transform 1.1s cubic-bezier(.22,.61,.36,1)}
+.stages.is-waiting::before{transform:scaleX(0)}
+.stage-t{transition:color .26s cubic-bezier(.22,.61,.36,1),transform .26s cubic-bezier(.22,.61,.36,1)}
+.stage:hover .stage-t{color:var(--gold);transform:translateX(6px)}
+@media (min-width:1280px){.stage{position:relative}.stage::before{content:"";position:absolute;left:0;top:-38px;width:8px;height:8px;background:var(--gold);transition:transform .3s cubic-bezier(.22,.61,.36,1)}.stage:hover::before{transform:scale(1.6)}}
+/* 02 numbers and 06 codes slide right. */
+.slide-n{transition:transform .3s cubic-bezier(.22,.61,.36,1)}
+.slide-item:hover .slide-n{transform:translateX(8px)}
+/* 07 market names turn gold and shift. */
+.city{transition:color .26s cubic-bezier(.22,.61,.36,1),transform .26s cubic-bezier(.22,.61,.36,1)}
+.city-row:hover .city{color:var(--gold-deep);transform:translateX(6px)}
+/* 08 standards: gold bar above each one stretches. */
+.standard-bar{display:block;width:28px;height:3px;margin:0 0 18px;background:var(--gold);transition:width .42s cubic-bezier(.22,.61,.36,1)}
+.standard:hover .standard-bar{width:72px}
+/* 11 contact links: underline grows in. */
+.grow-link{text-decoration:none;background:linear-gradient(currentColor,currentColor) left bottom/0 1px no-repeat;padding-bottom:2px;transition:background-size .36s cubic-bezier(.22,.61,.36,1)}
+.grow-link:hover,.grow-link:focus-visible{background-size:100% 1px}

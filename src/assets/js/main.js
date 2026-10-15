@@ -171,6 +171,38 @@
     if (!reduced) requestAnimationFrame(tick);
   }
 
+  /* Header scroll progress: the gold line fills as the page scrolls. */
+  function scrollProgress() {
+    var bar = document.querySelector('[data-progress]');
+    if (!bar) return;
+    var queued = false;
+    var paint = function () {
+      queued = false;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0).toFixed(4) + ')';
+    };
+    var onScroll = function () { if (!queued) { queued = true; requestAnimationFrame(paint); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    paint();
+  }
+
+  /* One-shot entrances: the dark-band rule draws across, the 06 bullet squares
+     pop in. Drawn by default; only dims when the script can animate it. */
+  function entrances() {
+    if (reduced || typeof IntersectionObserver === 'undefined') return;
+    var els = $$('[data-draw], [data-pop]');
+    if (!els.length) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.remove('is-waiting');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -15% 0px' });
+    els.forEach(function (el) { el.classList.add('is-waiting'); io.observe(el); });
+  }
+
   /* Investor list: posts to Netlify Forms without leaving the page. */
   function investorForm() {
     var form = document.querySelector('[data-investor-form]');
@@ -210,6 +242,8 @@
   }
 
   navSpy();
+  scrollProgress();
+  entrances();
   heroIntro();
   reveals();
   arms();
