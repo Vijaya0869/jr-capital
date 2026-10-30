@@ -36,54 +36,53 @@
     onScroll();
   }
 
-  /* Hero entrance (GSAP). Waits briefly for the deferred CDN script. */
-  function heroIntro(tries) {
-    if (reduced || !document.querySelector('[data-hero]')) return;
-    var gsap = window.gsap;
-    if (!gsap) {
-      if ((tries || 0) < 30) setTimeout(function () { heroIntro((tries || 0) + 1); }, 100);
-      return;
-    }
-    gsap.timeline({ delay: 0.3, defaults: { ease: 'power2.out', duration: 0.8 } })
-      .from('[data-hero="kicker"]', { opacity: 0, y: 8 })
-      .from('[data-hero="head"]', { opacity: 0, y: 28 }, '-=0.62')
-      .from('[data-hero="rule"]', { scaleX: 0, duration: 0.52 }, '-=0.58')
-      .from('[data-hero="lede"]', { opacity: 0, y: 8 }, '-=0.46')
-      .from('[data-hero="actions"]', { opacity: 0, y: 8 }, '-=0.66')
-      .from('[data-hero="plate"]', { opacity: 0, y: 28 }, '-=0.72');
+  /* Header: solid navy at the top, frosted navy glass once the page moves. */
+  function header() {
+    var head = document.querySelector('[data-head]');
+    if (!head) return;
+    var paint = function () { head.classList.toggle('is-solid', window.scrollY > 24); };
+    window.addEventListener('scroll', paint, { passive: true });
+    paint();
   }
 
-  /* Scroll reveals: CSS owns the motion, an IntersectionObserver owns the
-     state. Markup is visible by default; only [data-reveal] dims, so a failed
-     script can never leave the page blank. */
+  /* Scroll reveals that can never leave a section blank (as on R&R). Nothing
+     is hidden at load, so screenshots, print and slow devices see the whole
+     page. On the first scroll, only items still below the fold are marked;
+     each is unmarked as it arrives. */
   function reveals() {
     if (reduced || typeof IntersectionObserver === 'undefined') return;
-    var targets = [];
-    $$('[data-rail]').forEach(function (rail) { targets.push([rail, 'block', 0]); });
+    var items = [];
+    $$('[data-rail]').forEach(function (rail) { items.push([rail, 0]); });
     $$('[data-col]').forEach(function (col) {
       var kids = [];
       Array.prototype.forEach.call(col.children, function (child) {
         var cs = getComputedStyle(child);
-        var isTrack = (cs.display === 'grid' || cs.display === 'flex') && child.children.length > 1;
+        var isTrack = (cs.display === 'grid' || cs.display === 'flex') && child.children.length > 1 && !child.hasAttribute('data-arms');
         if (isTrack) Array.prototype.forEach.call(child.children, function (g) { kids.push(g); });
         else kids.push(child);
       });
-      kids.forEach(function (el, i) {
-        targets.push([el, el.matches('h2, h3, h4, p, blockquote') ? 'text' : 'block', (i % 4) * 0.07]);
-      });
+      kids.forEach(function (el, i) { items.push([el, (i % 4) * 80]); });
     });
+    if (!items.length) return;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) e.target.classList.add('is-in');
-        else if (e.boundingClientRect.top > 0) e.target.classList.remove('is-in');
+        if (!e.isIntersecting) return;
+        e.target.classList.remove('pre');
+        io.unobserve(e.target);
       });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.01 });
-    targets.forEach(function (t) {
-      var el = t[0];
-      el.setAttribute('data-reveal', t[1] === 'text' ? 'text' : '');
-      el.style.transitionDelay = t[2] && !el.hasAttribute('data-arm') ? t[2] + 's' : '';
-      io.observe(el);
-    });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    var arm = function () {
+      window.removeEventListener('scroll', arm);
+      var fold = window.innerHeight;
+      items.forEach(function (it) {
+        var el = it[0];
+        if (el.getBoundingClientRect().top < fold) return;
+        el.style.setProperty('--d', it[1] + 'ms');
+        el.classList.add('rev', 'pre');
+        io.observe(el);
+      });
+    };
+    window.addEventListener('scroll', arm, { passive: true });
   }
 
   /* Platform arms: hover/focus/arrow-key navigation, auto-advance that
@@ -188,7 +187,8 @@
   }
 
   /* One-shot entrances: the dark-band rule draws across, the 06 bullet squares
-     pop in. Drawn by default; only dims when the script can animate it. */
+     pop in. Drawn by default; like the reveals, only what is still below the
+     fold on the first scroll waits to animate. */
   function entrances() {
     if (reduced || typeof IntersectionObserver === 'undefined') return;
     var els = $$('[data-draw], [data-pop]');
@@ -200,7 +200,16 @@
         io.unobserve(e.target);
       });
     }, { rootMargin: '0px 0px -15% 0px' });
-    els.forEach(function (el) { el.classList.add('is-waiting'); io.observe(el); });
+    var arm = function () {
+      window.removeEventListener('scroll', arm);
+      var fold = window.innerHeight;
+      els.forEach(function (el) {
+        if (el.getBoundingClientRect().top < fold) return;
+        el.classList.add('is-waiting');
+        io.observe(el);
+      });
+    };
+    window.addEventListener('scroll', arm, { passive: true });
   }
 
   /* Investor list: posts to Netlify Forms without leaving the page. */
@@ -241,10 +250,10 @@
     });
   }
 
+  header();
   navSpy();
   scrollProgress();
   entrances();
-  heroIntro();
   reveals();
   arms();
   timeline();

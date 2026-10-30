@@ -1,0 +1,124 @@
+/* JR Capital — glass layer, shared with R&R Grandeur Properties.
+   Load AFTER site.css:  <link rel="stylesheet" href="/assets/css/glass.css">
+   Additive only: remove the link to roll back.
+
+   Tokens are copied unchanged from R&R's glass.css; the selectors are mapped
+   to JR's markup. Rules this layer keeps:
+   - Glass only where something sits behind it (navy glow, warm orbs).
+   - Navy glass carries white text; ivory glass carries ink. Contrast stays AA.
+   - Gold is a hairline and a glow, never a fill under body text.
+   - No glass box on the hero.
+   - No backdrop-filter support, or "reduce transparency" set → solid fallbacks. */
+
+:root {
+  --glass-navy: rgba(10, 26, 49, 0.58);
+  --glass-navy-strong: rgba(10, 26, 49, 0.78);
+  --glass-light: rgba(255, 255, 255, 0.55);
+  --glass-light-strong: rgba(255, 255, 255, 0.72);
+  --glass-edge-gold: rgba(201, 162, 39, 0.38);
+  --glass-edge-white: rgba(255, 255, 255, 0.16);
+  --glass-edge-light: rgba(255, 255, 255, 0.85);
+  --glass-blur: blur(18px) saturate(150%);
+  --glass-radius: 18px;
+  --glass-shadow: 0 18px 50px rgba(6, 14, 28, 0.28);
+  --glass-shadow-light: 0 14px 40px rgba(14, 35, 64, 0.10);
+}
+
+/* ── Header: frosted navy once scrolled ────────────────────────────── */
+.site-head.is-solid {
+  background: var(--glass-navy-strong);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: 0 1px 0 var(--glass-edge-gold), 0 10px 30px rgba(6, 14, 28, 0.22);
+}
+.head-cta { border-radius: 999px; }
+
+/* ── Buttons ───────────────────────────────────────────────────────── */
+.btn { border-radius: 999px; }
+.btn-primary { box-shadow: 0 8px 24px rgba(201, 162, 39, 0.28); }
+
+/* ── Light sections: warm orbs behind ivory glass ──────────────────── */
+#value, #growth, #strategies, #standards, #team, #invest { position: relative; overflow: hidden; isolation: isolate; }
+#value::before, #growth::before, #strategies::before, #standards::before, #team::before, #invest::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(520px 380px at 8% 18%, rgba(201, 162, 39, 0.16), transparent 70%),
+    radial-gradient(640px 420px at 92% 82%, rgba(14, 35, 64, 0.10), transparent 70%);
+}
+
+/* Ivory glass card used by value steps, goals, strategies, standards, team, the investor form */
+.step, .goal, .strategy, .standard, .person, .invest-form {
+  background: var(--glass-light);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-edge-light);
+  border-radius: var(--glass-radius);
+  box-shadow: var(--glass-shadow-light), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: transform 320ms var(--ease), box-shadow 320ms var(--ease);
+}
+.step, .goal { padding: 24px 24px 26px; border-top: 2px solid var(--gold-ink); }
+.strategy, .standard { padding: 26px 26px 28px; border-top: 2px solid var(--gold-ink); }
+.person { padding: 32px 32px 34px; border-top: 2px solid var(--navy); }
+.invest-form { padding: 32px 36px; }
+
+.step:hover, .goal:hover, .strategy:hover, .standard:hover, .person:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(14, 35, 64, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* ── Navy sections: gold + blue glow behind navy glass ─────────────── */
+#offering { position: relative; overflow: hidden; isolation: isolate; }
+#offering::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(700px 480px at 12% 8%, rgba(201, 162, 39, 0.20), transparent 70%),
+    radial-gradient(800px 560px at 90% 60%, rgba(56, 104, 170, 0.32), transparent 70%),
+    radial-gradient(600px 400px at 40% 100%, rgba(201, 162, 39, 0.10), transparent 70%);
+}
+
+.trait {
+  padding: 24px 24px 26px;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-edge-white);
+  border-radius: 22px;
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  transition: transform 320ms var(--ease), border-color 320ms var(--ease);
+}
+.trait:hover { transform: translateY(-6px); border-color: var(--glass-edge-gold); }
+
+/* ── Platform and table: rounded imagery, glass table ──────────────── */
+[data-arms] { border-radius: var(--glass-radius); overflow: hidden; }
+.table tbody tr:hover { background: rgba(14, 35, 64, 0.03); }
+
+/* ── Dark colour theme (CMS option): cards turn to navy glass ──────── */
+:root[data-theme="dark"] :is(.step, .goal, .strategy, .standard, .person, .invest-form) {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--glass-edge-white);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+/* ── Mobile: lighter blur, tighter cards ───────────────────────────── */
+@media (max-width: 940px) {
+  .trait, .person, .invest-form { border-radius: 18px; }
+}
+@media (max-width: 560px) {
+  :root { --glass-blur: blur(12px) saturate(140%); }
+  .person, .invest-form { padding: 24px; }
+}
+
+/* ── Fallbacks ─────────────────────────────────────────────────────── */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-head.is-solid { background: var(--navy); }
+  .step, .goal, .strategy, .standard, .person, .invest-form { background: var(--white); }
+  .trait { background: rgba(255, 255, 255, 0.06); }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .site-head.is-solid { background: var(--navy); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .step, .goal, .strategy, .standard, .person, .invest-form { background: var(--white); backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .step, .goal, .strategy, .standard, .person, .trait { transition: none; }
+  .step:hover, .goal:hover, .strategy:hover, .standard:hover, .person:hover, .trait:hover { transform: none; }
+}
