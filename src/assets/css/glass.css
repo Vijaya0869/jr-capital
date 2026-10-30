@@ -113,6 +113,39 @@
 [data-arms] { border-radius: var(--glass-radius); overflow: hidden; }
 .table tbody tr:hover { background: rgba(14, 35, 64, 0.03); }
 
+/* Platform panels show their images in true colour: no darkening, no navy
+   scrim. The number and caption sit on navy glass so white text stays AA on
+   light illustrations. */
+[data-arm] [data-arm-img], [data-arm].is-active [data-arm-img] { filter: none; }
+[data-arm] [data-arm-scrim] { background: none; }
+[data-arm] [data-arm-n], [data-arm].is-passed [data-arm-n], [data-arm].is-active [data-arm-n] {
+  justify-self: start; align-self: flex-start;
+  padding: 4px 10px;
+  color: #fff;
+  background: var(--glass-navy-strong);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+}
+[data-arm] [data-arm-body] {
+  right: auto; max-width: min(46ch, calc(100% - 40px));
+  padding: 18px 22px 20px;
+  background: var(--glass-navy-strong);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-edge-white);
+  border-radius: 14px;
+  box-shadow: var(--glass-shadow);
+}
+[data-arm] [data-arm-body] h4 { margin-bottom: 8px !important; }
+/* Phones: the image gets its own strip and the caption card sits below it. */
+@media (max-width: 760px) {
+  [data-arm] { padding: 0 0 20px !important; }
+  [data-arm] [data-arm-img] { position: relative !important; inset: auto !important; order: -1; aspect-ratio: 18 / 7; }
+  [data-arm] [data-arm-n] { position: absolute !important; top: 14px; left: 14px; }
+  [data-arm] [data-arm-body] { max-width: none; margin: 14px 14px 0 !important; }
+}
+
 /* ── Dark colour theme (CMS option): cards turn to navy glass ──────── */
 :root[data-theme="dark"] :is(.step, .goal, .strategy, .standard, .person, .invest-form) {
   background: rgba(255, 255, 255, 0.05);
@@ -131,12 +164,12 @@
 
 /* ── Fallbacks ─────────────────────────────────────────────────────── */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .site-head.is-solid { background: var(--navy); }
+  .site-head.is-solid, [data-arm] [data-arm-body], [data-arm] [data-arm-n], [data-arm].is-active [data-arm-n] { background: var(--navy); }
   .step, .goal, .strategy, .standard, .person, .invest-form { background: var(--white); }
   .trait { background: rgba(255, 255, 255, 0.06); }
 }
 @media (prefers-reduced-transparency: reduce) {
-  .site-head.is-solid { background: var(--navy); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .site-head.is-solid, [data-arm] [data-arm-body], [data-arm] [data-arm-n], [data-arm].is-active [data-arm-n] { background: var(--navy); backdrop-filter: none; -webkit-backdrop-filter: none; }
   .step, .goal, .strategy, .standard, .person, .invest-form { background: var(--white); backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 @media (prefers-reduced-motion: reduce) {
