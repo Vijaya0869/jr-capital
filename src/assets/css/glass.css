@@ -24,6 +24,27 @@
   --glass-shadow-light: 0 14px 40px rgba(14, 35, 64, 0.10);
 }
 
+/* ── Official logo (JR. | CAPITAL) ─────────────────────────────────── */
+/* Same rules and sizes as R&R's logo, pointing at JR's file: the official
+   artwork cut out onto a transparent background, white and gold, for the navy
+   header and footer. The link keeps its aria-label, so screen readers and
+   search still read "JR Capital". */
+.brand {
+  display: block; flex: none;
+  width: 132px; height: 47px;               /* logo ratio 2.81 : 1 */
+  background: url("/assets/logo.png") left center / contain no-repeat;
+}
+.brand > * {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.site-head .brand { margin-right: auto; transition: width 320ms var(--ease), height 320ms var(--ease); }
+.site-head.is-solid .brand { width: 118px; height: 42px; }
+.foot-brand .brand { width: 210px; height: 75px; }
+@media (max-width: 560px) {
+  .brand, .site-head.is-solid .brand { width: 112px; height: 40px; }
+}
+
 /* ── Header: frosted navy once scrolled ────────────────────────────── */
 .site-head.is-solid {
   background: var(--glass-navy-strong);

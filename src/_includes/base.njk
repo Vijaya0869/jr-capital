@@ -12,12 +12,13 @@
 <meta property="og:title" content="{{ title or site.title }}">
 <meta property="og:description" content="{{ description or site.description }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-{#- Same type as R&R Grandeur Properties; Playfair and Barlow Condensed are subset to the logo letters. #}
+{#- Same type as R&R Grandeur Properties. The logo is an image (/assets/logo.png), so it needs no fonts. #}
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Barlow+Condensed:wght@500&text=JRCAPITLapitl&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/industry.css">
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="stylesheet" href="/assets/css/glass.css">
@@ -27,9 +28,7 @@
 
 <header class="site-head" data-head>
   <div class="head-in" data-gutter>
-    <a class="brand" href="/#top" aria-label="{{ site.name }}, home">
-      <span class="logo logo-on-field" aria-hidden="true"><span class="logo-jr">JR</span><span class="logo-word">Capital</span></span>
-    </a>
+    <a class="brand" href="/#top" aria-label="{{ site.name }}, home"></a>
     <nav class="navlinks" aria-label="Sections">
       {%- for item in site.nav %}
       <a class="navlink" href="/#{{ item.target }}" data-nav="{{ item.target }}">{{ item.label }}</a>
@@ -48,9 +47,7 @@
   <div class="foot-in" data-gutter>
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="brand" href="/#top" aria-label="{{ site.name }}, home">
-          <span class="logo logo-on-field" aria-hidden="true"><span class="logo-jr">JR</span><span class="logo-word">Capital</span></span>
-        </a>
+        <a class="brand" href="/#top" aria-label="{{ site.name }}, home"></a>
         <p class="foot-addr">{{ site.address }}</p>
       </div>
       {%- if site.companies and site.companies.length %}

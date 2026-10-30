@@ -50,7 +50,6 @@ a:hover{color:var(--gold-deep)}
 .site-head.is-solid{box-shadow:0 1px 0 rgba(201,162,39,.35),0 8px 24px rgba(6,14,28,.18)}
 .head-in{max-width:1560px;margin:0 auto;height:var(--head-h);padding:0 64px;display:flex;align-items:center;gap:28px}
 .brand{display:inline-flex;align-items:center;margin-right:auto;text-decoration:none;color:#fff}
-.site-head .logo{font-size:40px}
 .navlinks{display:flex;align-items:center;gap:26px}
 .navlink{position:relative;font-size:12.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.86);text-decoration:none;padding:6px 0;white-space:nowrap;transition:color 240ms ease}
 .navlink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 320ms var(--ease)}
@@ -60,13 +59,12 @@ a:hover{color:var(--gold-deep)}
 .head-cta:hover{background:#d9b43c;color:var(--navy)}
 .site-head :focus-visible{outline-color:var(--gold)}
 @media (max-width:1279px){.navlinks{display:none}}
-@media (max-width:520px){:root{--head-h:64px}.site-head .logo{font-size:34px}.head-cta{padding:9px 12px;font-size:11.5px;letter-spacing:.08em}.hide-s{display:none}.head-in{gap:12px}}
+@media (max-width:520px){:root{--head-h:64px}.head-cta{padding:9px 12px;font-size:11.5px;letter-spacing:.08em}.hide-s{display:none}.head-in{gap:12px}}
 
 /* ── Footer: R&R's layout ─────────────────────────────────────────────────── */
 .site-foot{background:var(--navy-deep);color:rgba(255,255,255,.78);border-top:3px solid var(--gold)}
 .foot-in{max-width:1560px;margin:0 auto;padding:64px 64px 28px}
 .foot-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px;padding-bottom:44px;border-bottom:1px solid var(--navy-line)}
-.foot-brand .logo{font-size:56px}
 .foot-addr{margin:22px 0 0;font-size:14px;color:rgba(255,255,255,.78)}
 .foot-k{font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
 .foot-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
@@ -159,14 +157,6 @@ a:hover{color:var(--gold-deep)}
 .prose h2{font-size:28px;margin:40px 0 12px;color:var(--color-accent-900)}
 .prose h3{font-size:19px;margin:28px 0 8px}
 .prose p,.prose ul,.prose ol{margin:0 0 16px}
-/* Logo: serif "JR" with a gold full stop, a hairline rule, then letterspaced "CAPITAL".
-   Sized in em, so set font-size on .logo. Gold text is the deep gold on light
-   backgrounds and the bright brand gold on the navy field. */
-.logo{--logo-jr:var(--color-accent-900);--logo-gold:var(--gold);--logo-word:#8a6d12;display:inline-flex;align-items:center;line-height:1;white-space:nowrap}
-:root[data-theme="dark"] .logo,.logo-on-field{--logo-jr:#f2f2f3;--logo-word:var(--gold)}
-.logo-jr{position:relative;font-family:"Playfair Display",Georgia,serif;font-weight:500;letter-spacing:-.01em;color:var(--logo-jr);padding-right:.2em}
-.logo-jr::after{content:"";position:absolute;right:.01em;bottom:.075em;width:.15em;height:.15em;border-radius:50%;background:var(--logo-gold)}
-.logo-word{margin:-.3em -.2em 0 .7em;padding-left:.32em;border-left:max(1px,.04em) solid var(--logo-gold);font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:500;font-size:.27em;letter-spacing:.2em;line-height:1.3;text-transform:uppercase;color:var(--logo-word)}
 .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 /* ── Open layouts (fewer lines and boxes) ─────────────────────────────────── */
 /* Dark band: six stages in rows of 3 (all 6 across on wide screens), four traits 2×2 (4 across). */
