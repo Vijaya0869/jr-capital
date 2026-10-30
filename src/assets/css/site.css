@@ -17,7 +17,11 @@ a:hover{color:var(--gold-deep)}
 ::selection{background:rgba(201,162,39,.32)}
 .skip{position:absolute;left:-9999px;top:0;z-index:60;background:var(--gold);color:var(--navy);padding:10px 16px;font-weight:600}
 .skip:focus{left:16px;top:16px}
-.band{background:var(--band)}
+/* Even chapters (02, 04, 06, 08, 10) are navy bands, alternating with the
+   light ones as on R&R. Tokens flip inside the band, so inline colours follow:
+   text turns white and every gold mark uses the bright gold. */
+.band{--color-text:#fff;--muted:rgba(255,255,255,.72);--acc-ink:var(--gold);--gold-deep:var(--gold);--gold-ink:var(--gold);--color-accent-900:#fff;--edge:var(--navy-line);--edge-soft:var(--navy-line);--color-divider:var(--navy-line);background:var(--navy);color:#fff}
+.band :focus-visible{outline-color:var(--gold)}
 .navy-band{background:var(--field);color:var(--field-ink)}
 .navy-band :focus-visible{outline-color:var(--gold)}
 .blueprint{border-color:var(--edge)}

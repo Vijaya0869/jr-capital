@@ -59,8 +59,8 @@
 .btn-primary { box-shadow: 0 8px 24px rgba(201, 162, 39, 0.28); }
 
 /* ── Light sections: warm orbs behind ivory glass ──────────────────── */
-#value, #growth, #strategies, #standards, #team, #invest { position: relative; overflow: hidden; isolation: isolate; }
-#value::before, #growth::before, #strategies::before, #standards::before, #team::before, #invest::before {
+#growth, #invest { position: relative; overflow: hidden; isolation: isolate; }
+#growth::before, #invest::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background:
     radial-gradient(520px 380px at 8% 18%, rgba(201, 162, 39, 0.16), transparent 70%),
@@ -88,8 +88,8 @@
 }
 
 /* ── Navy sections: gold + blue glow behind navy glass ─────────────── */
-#offering { position: relative; overflow: hidden; isolation: isolate; }
-#offering::before {
+#offering, .band { position: relative; overflow: hidden; isolation: isolate; }
+#offering::before, .band::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background:
     radial-gradient(700px 480px at 12% 8%, rgba(201, 162, 39, 0.20), transparent 70%),
@@ -108,6 +108,18 @@
   transition: transform 320ms var(--ease), border-color 320ms var(--ease);
 }
 .trait:hover { transform: translateY(-6px); border-color: var(--glass-edge-gold); }
+
+/* Cards inside the navy chapters take the same navy glass, with a gold top edge. */
+.band :is(.step, .goal, .strategy, .standard, .person) {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--glass-edge-white);
+  border-top: 2px solid var(--gold);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+.band :is(.step, .goal, .strategy, .standard, .person):hover {
+  border-color: var(--glass-edge-gold); border-top-color: var(--gold);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
 
 /* ── Platform and table: rounded imagery, glass table ──────────────── */
 [data-arms] { border-radius: var(--glass-radius); overflow: hidden; }
