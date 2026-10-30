@@ -125,30 +125,26 @@
 [data-arms] { border-radius: var(--glass-radius); overflow: hidden; }
 .table tbody tr:hover { background: rgba(14, 35, 64, 0.03); }
 
-/* Platform panels show their images in true colour. The images multiply onto
-   the ivory page, so their white backgrounds disappear and the drawings sit
-   straight on the page. Each image is shown whole (contain) in the right 60%
-   of the open panel, beside the caption. Closed panels show only the gold
-   number. Captions are ink, capped so they never run into a drawing. */
-[data-arms] { background: var(--ivory); }
-[data-arm], [data-arm].is-active { background: none; }
-[data-arm] [data-arm-img], [data-arm].is-active [data-arm-img] { filter: none; mix-blend-mode: multiply; opacity: 0; transition: opacity 0.52s var(--ease); }
-[data-arm].is-active [data-arm-img] { opacity: 1; }
-[data-arm] [data-arm-img] { inset: 28px 24px 0 40% !important; -webkit-mask-image: linear-gradient(to right, transparent, #000 10%); mask-image: linear-gradient(to right, transparent, #000 10%); }
-[data-arm] [data-arm-img] img { object-fit: contain !important; object-position: center bottom; }
-[data-arm] [data-arm-scrim], [data-arm].is-active [data-arm-scrim] { background: none; }
-[data-arm] [data-arm-body] { right: auto; width: min(36ch, 38%); }
+/* Platform panels show their images in true colour: no darkening and no navy
+   tint. Captions are ink on a soft white fade at the left edge (no box), so
+   they read on the light illustrations and on the construction photo. */
+[data-arm] [data-arm-img], [data-arm].is-active [data-arm-img] { filter: none; }
+[data-arm] [data-arm-scrim] {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0) 55%);
+}
+[data-arm]:not(.is-active) [data-arm-scrim] { background: none; }
+[data-arm].is-active { background: none; }
 [data-arm] h4, [data-arm] [data-arm-body] p { color: var(--ink); }
-[data-arm] [data-arm-n], [data-arm].is-passed [data-arm-n], [data-arm].is-active [data-arm-n] { color: var(--gold-deep); font-weight: 600; }
-[data-arm]::before { background: var(--gold-deep); }
-[data-arm-t]::after { background: var(--gold-deep); }
+[data-arm] [data-arm-n], [data-arm].is-passed [data-arm-n], [data-arm].is-active [data-arm-n] { color: var(--navy); }
+[data-arm-t]::after { background: var(--navy); }
 /* Phones: the image gets its own strip and the caption sits below it. */
 @media (max-width: 760px) {
   [data-arm] { padding: 0 20px 24px !important; }
-  [data-arm] [data-arm-img], [data-arm].is-active [data-arm-img] { position: relative !important; inset: auto !important; order: -1; aspect-ratio: 2 / 1; margin: 16px 0 14px; opacity: 1; -webkit-mask-image: none; mask-image: none; }
-  [data-arm] [data-arm-scrim], [data-arm].is-active [data-arm-scrim] { display: none; }
-  [data-arm] [data-arm-body] { width: auto; }
-}lour theme (CMS option): cards turn to navy glass ──────── */
+  [data-arm] [data-arm-img] { position: relative !important; inset: auto !important; order: -1; aspect-ratio: 18 / 7; margin: 0 -20px 14px; }
+  [data-arm] [data-arm-scrim], [data-arm]:not(.is-active) [data-arm-scrim] { display: none; }
+}
+
+/* ── Dark colour theme (CMS option): cards turn to navy glass ──────── */
 :root[data-theme="dark"] :is(.step, .goal, .strategy, .standard, .person, .invest-form) {
   background: rgba(255, 255, 255, 0.05);
   border-color: var(--glass-edge-white);
