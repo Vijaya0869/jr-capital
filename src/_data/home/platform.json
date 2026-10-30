@@ -3,10 +3,10 @@
   "heading": "One team from the first site visit to the final distribution.",
   "lede": "Most sponsors hire out construction and management. We own those functions, which means fewer hand-offs, tighter cost control and one accountable team.",
   "arms": [
-    { "title": "Acquisitions & underwriting", "body": "Deal sourcing through broker and direct-to-owner channels, underwriting, negotiation and due diligence.", "image": "/assets/uploads/arm-acquisitions.jpg", "alt": "Signing an acquisition contract" },
-    { "title": "Construction", "body": "In-house crews handle unit renovations, capital projects and ground-up builds on our schedule and budget.", "image": "/assets/uploads/arm-construction.jpg", "alt": "A model house on construction drawings" },
-    { "title": "Property management", "body": "JR Elite Rentals, our affiliated manager, runs leasing, collections and maintenance with the same reporting standards.", "image": "/assets/uploads/arm-operations.jpg", "alt": "Property management data overlay" },
-    { "title": "Asset management & reporting", "body": "Monthly budget-versus-actual reviews, quarterly investor letters and an online investor portal.", "image": "/assets/uploads/arm-development.jpg", "alt": "Housing growth trend overlay" }
+    { "title": "Acquisitions & underwriting", "body": "Deal sourcing through broker and direct-to-owner channels, underwriting, negotiation and due diligence.", "image": "/assets/uploads/arm-acquisitions-underwriting.jpg", "alt": "Illustration of hands holding a deal document, a magnifying glass, a calculator and a pie chart" },
+    { "title": "Construction", "body": "In-house crews handle unit renovations, capital projects and ground-up builds on our schedule and budget.", "image": "/assets/uploads/arm-construction-site.jpg", "alt": "Silhouettes of construction crews working on scaffolding, with cranes and a city skyline behind" },
+    { "title": "Property management", "body": "JR Elite Rentals, our affiliated manager, runs leasing, collections and maintenance with the same reporting standards.", "image": "/assets/uploads/arm-property-management.jpg", "alt": "Line drawing of one hand holding a small house and another handing over a key" },
+    { "title": "Asset management & reporting", "body": "Monthly budget-versus-actual reviews, quarterly investor letters and an online investor portal.", "image": "/assets/uploads/arm-asset-management.jpg", "alt": "Sketch of a rising bar chart with an upward arrow, a dollar coin and a stack of coins" }
   ],
   "table_label": "What vertical integration changes",
   "table_left_heading": "Typical sponsor",

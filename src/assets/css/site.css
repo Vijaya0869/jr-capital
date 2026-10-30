@@ -105,7 +105,7 @@ a:hover{color:var(--gold-deep)}
 [data-arm].is-passed [data-arm-n]{color:color-mix(in srgb,#f2f2f3 82%,transparent)}
 [data-arm].is-active [data-arm-n]{color:#f2f2f3;transform:scale(1.04)}
 [data-arm-t]::after{background:#f2f2f3}
-[data-arm]{flex:1 1 100% !important;overflow:visible}[data-arm-body]{position:static;left:auto;right:auto;bottom:auto;opacity:1;transform:none;pointer-events:auto;margin-top:16px}}
+[data-arm]{flex:1 1 100% !important;overflow:visible}[data-arm] [data-arm-body]{position:static;left:auto;right:auto;bottom:auto;opacity:1;transform:none;pointer-events:auto;margin-top:16px}}
 
 .is-sent .dfield{display:none}
 .dstatus{display:none;margin:0}
