@@ -22,6 +22,11 @@ a:hover{color:var(--gold-deep)}
    text turns white and every gold mark uses the bright gold. */
 .band{--color-text:#fff;--muted:rgba(255,255,255,.72);--acc-ink:var(--gold);--gold-deep:var(--gold);--gold-ink:var(--gold);--color-accent-900:#fff;--edge:var(--navy-line);--edge-soft:var(--navy-line);--color-divider:var(--navy-line);background:var(--navy);color:#fff}
 .band :focus-visible{outline-color:var(--gold)}
+/* Light chapters alternate white and cream between the navy bands, so the page
+   runs cream → navy → white → navy → cream, as on R&R (tone-white / tone-light).
+   These sections are max-width boxes, so the white is bled to the viewport
+   edges with a spread shadow clipped to the section's own height. */
+#problem,#platform,#process{background:var(--white);box-shadow:0 0 0 100vmax var(--white);clip-path:inset(0 -100vmax)}
 .navy-band{background:var(--field);color:var(--field-ink)}
 .navy-band :focus-visible{outline-color:var(--gold)}
 .blueprint{border-color:var(--edge)}

@@ -67,9 +67,11 @@
     radial-gradient(640px 420px at 92% 82%, rgba(14, 35, 64, 0.10), transparent 70%);
 }
 
-/* Ivory glass card used by value steps, goals, strategies, standards, team, the investor form */
+/* Card used by value steps, goals, strategies, standards, team, the investor
+   form. On the cream chapters it is a solid white card (cream / white / navy
+   theme); inside the navy chapters .band turns it to navy glass. */
 .step, .goal, .strategy, .standard, .person, .invest-form {
-  background: var(--glass-light);
+  background: var(--white);
   -webkit-backdrop-filter: var(--glass-blur);
   backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-edge-light);
