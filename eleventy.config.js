@@ -4,7 +4,7 @@
 //         every other address returns 404 and nothing is indexed. Local
 //         builds and Netlify deploy previews still build the full site.
 // false → the full site is live again. Commit and push to main.
-const SITE_OFFLINE = true;
+const SITE_OFFLINE = false;
 const OFFLINE_NOW = SITE_OFFLINE && process.env.CONTEXT === 'production';
 
 export default function (eleventyConfig) {
