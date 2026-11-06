@@ -157,11 +157,27 @@ a:hover{color:var(--gold-deep)}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}.pre{opacity:1;transform:none}}
 /* Phones: the 64px desktop gutter would leave too little room for content. */
 @media (max-width:700px){[data-gutter]{padding-left:20px !important;padding-right:20px !important}}
-/* Long-form pages (legal) */
-.prose{max-width:72ch;font-size:16.5px;line-height:1.7}
-.prose h2{font-size:28px;margin:40px 0 12px;color:var(--color-accent-900)}
-.prose h3{font-size:19px;margin:28px 0 8px}
-.prose p,.prose ul,.prose ol{margin:0 0 16px}
+/* Long-form pages (legal): same layout as R&R's. */
+.legal{max-width:964px;margin:0 auto;padding:clamp(48px,6vw,88px) 64px clamp(64px,7vw,104px)}
+.crumbs{display:flex;align-items:center;gap:12px;margin-bottom:30px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.crumbs a{color:var(--navy);text-decoration:none}
+.crumbs a:hover{color:var(--gold-deep)}
+.crumbs-sep{color:var(--gold-deep)}
+.legal h1,.legal-body h2{font-variant-numeric:lining-nums}
+.legal h1{font-weight:600;font-size:clamp(42px,5vw,64px);line-height:1.04;color:var(--navy);margin:0 0 14px}
+.legal-date{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--muted);padding-bottom:32px;margin-bottom:40px;border-bottom:1px solid var(--line)}
+.legal-note{margin:0 0 32px;padding:22px 26px;font-size:16.5px;line-height:1.65;color:#3c3c3e;text-align:justify;background:rgba(201,162,39,.08);border-left:3px solid var(--gold)}
+.legal-note strong{color:var(--navy)}
+.legal-body h2{font-weight:600;font-size:clamp(26px,2.4vw,32px);line-height:1.15;color:var(--navy);margin:48px 0 14px}
+.legal-body h3{font-family:var(--font-body);font-weight:600;font-size:17px;line-height:1.3;letter-spacing:0;color:var(--navy);margin:26px 0 10px}
+.legal-body p,.legal-body li{font-size:16.5px;line-height:1.72;color:#3c3c3e;text-align:justify}
+.legal-body p{margin:0 0 16px}
+.legal-body ul{padding-left:22px;margin:0 0 18px}
+.legal-body li{margin-bottom:8px}
+.legal-body li::marker{color:var(--gold-deep)}
+.legal-body strong{color:var(--navy);font-weight:600}
+.legal-body a{color:var(--gold-deep)}
+@media (max-width:640px){.legal-note,.legal-body p{hyphens:auto}.legal-body li{text-align:left}}
 .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 /* ── Open layouts (fewer lines and boxes) ─────────────────────────────────── */
 /* Dark band: six stages in rows of 3 (all 6 across on wide screens), four traits 2×2 (4 across). */
