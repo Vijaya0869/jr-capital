@@ -1,9 +1,9 @@
 /* JR Capital — page styles on top of industry.css (the design-system base). */
 /* Shared with R&R Grandeur Properties: Cormorant Garamond headlines over Inter,
-   white grounds (#fff) between navy bands, and the same gold rule —
+   white grounds (#fff) throughout, and the same gold rule —
    bright gold (#c9a227) only on navy, deep gold (#7a600f) on light grounds,
    because bright gold on ivory is 2.2:1 and fails WCAG AA. */
-:root{--font-heading:'Cormorant Garamond','Iowan Old Style',Georgia,'Times New Roman',serif;--font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-synthesis-weight:none;--navy:#0e2340;--navy-deep:#0a1a31;--navy-line:rgba(255,255,255,.16);--ivory:#ffffff;--ivory-deep:#eae2d2;--white:#fff;--ink:#1d1f20;--line:#dcd5c8;--ease:cubic-bezier(.22,.61,.36,1);--head-h:72px;--color-bg:var(--ivory);--color-surface:var(--white);--color-text:var(--ink);--color-divider:var(--line);--color-accent:#1d456f;--color-accent-300:#8fb0d0;--color-accent-600:#193c60;--color-accent-700:#14304d;--color-accent-800:#102741;--color-accent-900:#0e2340;--gold:#c9a227;--gold-deep:#7a600f;--gold-ink:var(--gold-deep);--gold-press:#a8861f;--band:var(--white);--edge:#cbc2b1;--acc-ink:var(--gold-deep);--muted:#5d5d60;--edge-soft:var(--line);--field:var(--navy);--field-ink:#fff;--field-rule:var(--navy-line);}
+:root{--font-heading:'Cormorant Garamond','Iowan Old Style',Georgia,'Times New Roman',serif;--font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-synthesis-weight:none;--navy:#0e2340;--navy-deep:#0a1a31;--navy-line:rgba(255,255,255,.16);--ivory:#ffffff;--ivory-deep:#eae2d2;--white:#fff;--ink:#1d1f20;--line:#dcd5c8;--ease:cubic-bezier(.22,.61,.36,1);--head-h:72px;--color-bg:var(--ivory);--color-surface:var(--white);--color-text:var(--ink);--color-divider:var(--line);--color-accent:#1d456f;--color-accent-300:#8fb0d0;--color-accent-600:#193c60;--color-accent-700:#14304d;--color-accent-800:#102741;--color-accent-900:#0e2340;--gold:#c9a227;--gold-deep:#7a600f;--gold-ink:var(--gold-deep);--gold-press:#a8861f;--band:var(--white);--edge:#cbc2b1;--acc-ink:var(--gold-deep);--muted:#5d5d60;--edge-soft:var(--line);--field:var(--white);--field-ink:var(--navy);--field-rule:var(--line);}
 :root[data-theme="dark"]{--band:color-mix(in srgb,var(--gold) 14%,#111417);--edge:color-mix(in srgb,#e7e9ea 38%,transparent);--color-bg:#111417;--color-surface:#181c20;--color-text:#e7e9ea;--color-divider:color-mix(in srgb,#e7e9ea 20%,transparent);--acc-ink:var(--gold);--muted:#9a9da1;--field:#1d2d3d;--field-ink:#e7e9ea;--field-rule:color-mix(in srgb,#e7e9ea 34%,transparent);--edge-soft:var(--color-divider)}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 section[id],[id="top"]{scroll-margin-top:calc(var(--head-h) - 8px)}
@@ -17,18 +17,15 @@ a:hover{color:var(--gold-deep)}
 ::selection{background:rgba(201,162,39,.32)}
 .skip{position:absolute;left:-9999px;top:0;z-index:60;background:var(--gold);color:var(--navy);padding:10px 16px;font-weight:600}
 .skip:focus{left:16px;top:16px}
-/* Even chapters (02, 04, 06, 08, 10) are navy bands, alternating with the
-   light ones as on R&R. Tokens flip inside the band, so inline colours follow:
-   text turns white and every gold mark uses the bright gold. */
-.band{--color-text:#fff;--muted:rgba(255,255,255,.72);--acc-ink:var(--gold);--gold-deep:var(--gold);--gold-ink:var(--gold);--color-accent-900:#fff;--edge:var(--navy-line);--edge-soft:var(--navy-line);--color-divider:var(--navy-line);background:var(--navy);color:#fff}
-.band :focus-visible{outline-color:var(--gold)}
+/* Even chapters (02, 04, 06, 08, 10) keep their glow but sit on white, as on
+   R&R. Text and gold marks use the same tokens as every other section. */
+.band{background:var(--white);color:var(--color-text)}
 /* Light chapters alternate white and cream between the navy bands, so the page
    runs cream → navy → white → navy → cream, as on R&R (tone-white / tone-light).
    These sections are max-width boxes, so the white is bled to the viewport
    edges with a spread shadow clipped to the section's own height. */
 #problem,#platform,#process{background:var(--white);box-shadow:0 0 0 100vmax var(--white);clip-path:inset(0 -100vmax)}
 .navy-band{background:var(--field);color:var(--field-ink)}
-.navy-band :focus-visible{outline-color:var(--gold)}
 .blueprint{border-color:var(--edge)}
 .table th{border-bottom-color:var(--edge)}
 
@@ -71,21 +68,20 @@ a:hover{color:var(--gold-deep)}
 @media (max-width:520px){:root{--head-h:64px}.head-cta{padding:9px 12px;font-size:11.5px;letter-spacing:.08em}.hide-s{display:none}.head-in{gap:12px}}
 
 /* ── Footer: R&R's layout ─────────────────────────────────────────────────── */
-.site-foot{background:var(--navy-deep);color:rgba(255,255,255,.78);border-top:3px solid var(--gold)}
+.site-foot{background:var(--white);color:#3c3c3e;border-top:3px solid var(--gold)}
 .foot-in{max-width:1560px;margin:0 auto;padding:64px 64px 28px}
-.foot-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px;padding-bottom:44px;border-bottom:1px solid var(--navy-line)}
-.foot-addr{margin:22px 0 0;font-size:14px;color:rgba(255,255,255,.78)}
-.foot-k{font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line)}
+.foot-addr{margin:22px 0 0;font-size:14px;color:#3c3c3e}
+.foot-k{font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:16px}
 .foot-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .foot-list li{font-size:14.5px}
-.foot-link{color:rgba(255,255,255,.86);text-decoration:none;transition:color 200ms ease}
-.foot-list .foot-link{color:#fff;font-weight:500}
-.foot-link:hover{color:var(--gold)}
-.foot-disc{display:grid;gap:12px;margin:28px 0 0;max-width:100ch;font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.7)}
+.foot-link{color:var(--navy);text-decoration:none;transition:color 200ms ease}
+.foot-list .foot-link{color:var(--navy);font-weight:500}
+.foot-link:hover{color:var(--gold-deep)}
+.foot-disc{display:grid;gap:12px;margin:28px 0 0;max-width:100ch;font-size:12.5px;line-height:1.7;color:var(--muted)}
 .foot-disc p{margin:0}
-.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:24px;font-size:13px;color:rgba(255,255,255,.72)}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:24px;font-size:13px;color:var(--muted)}
 .foot-legal{display:flex;flex-wrap:wrap;align-items:center;gap:22px}
-.site-foot :focus-visible{outline-color:var(--gold)}
 @media (max-width:1000px){.foot-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.foot-grid{grid-template-columns:1fr}}
 
@@ -199,7 +195,7 @@ a:hover{color:var(--gold-deep)}
 .stages::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--gold);transform-origin:left center;transition:transform 1.1s cubic-bezier(.22,.61,.36,1)}
 .stages.is-waiting::before{transform:scaleX(0)}
 .stage-t{transition:color .26s cubic-bezier(.22,.61,.36,1),transform .26s cubic-bezier(.22,.61,.36,1)}
-.stage:hover .stage-t{color:var(--gold);transform:translateX(6px)}
+.stage:hover .stage-t{color:var(--gold-deep);transform:translateX(6px)}
 @media (min-width:1280px){.stage{position:relative}.stage::before{content:"";position:absolute;left:0;top:-38px;width:8px;height:8px;background:var(--gold);transition:transform .3s cubic-bezier(.22,.61,.36,1)}.stage:hover::before{transform:scale(1.6)}}
 /* 02 numbers and 06 codes slide right. */
 .slide-n{transition:transform .3s cubic-bezier(.22,.61,.36,1)}

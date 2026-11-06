@@ -4,8 +4,8 @@
 
    Tokens are copied unchanged from R&R's glass.css; the selectors are mapped
    to JR's markup. Rules this layer keeps:
-   - Glass only where something sits behind it (navy glow, warm orbs).
-   - Navy glass carries white text; ivory glass carries ink. Contrast stays AA.
+   - Glass only where something sits behind it (warm orbs).
+   - Sections are white; ivory glass carries ink. Contrast stays AA.
    - Gold is a hairline and a glow, never a fill under body text.
    - No glass box on the hero.
    - No backdrop-filter support, or "reduce transparency" set → solid fallbacks. */
@@ -40,7 +40,7 @@
 }
 .site-head .brand { margin-right: auto; transition: width 320ms var(--ease), height 320ms var(--ease); }
 .site-head.is-solid .brand { width: 118px; height: 42px; }
-.foot-brand .brand { width: 210px; height: 75px; }
+.foot-brand .brand { width: 210px; height: 75px; background-image: url("/assets/logo-navy.png"); }
 @media (max-width: 560px) {
   .brand, .site-head.is-solid .brand { width: 112px; height: 40px; }
 }
@@ -89,38 +89,43 @@
   box-shadow: 0 22px 50px rgba(14, 35, 64, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
-/* ── Navy sections: gold + blue glow behind navy glass ─────────────── */
+/* ── Former navy sections: three-part glow, now in the light colours ─ */
 #offering, .band { position: relative; overflow: hidden; isolation: isolate; }
 #offering::before, .band::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background:
-    radial-gradient(700px 480px at 12% 8%, rgba(201, 162, 39, 0.20), transparent 70%),
-    radial-gradient(800px 560px at 90% 60%, rgba(56, 104, 170, 0.32), transparent 70%),
-    radial-gradient(600px 400px at 40% 100%, rgba(201, 162, 39, 0.10), transparent 70%);
+    radial-gradient(700px 480px at 12% 8%, rgba(201, 162, 39, 0.16), transparent 70%),
+    radial-gradient(800px 560px at 90% 60%, rgba(14, 35, 64, 0.10), transparent 70%),
+    radial-gradient(600px 400px at 40% 100%, rgba(201, 162, 39, 0.08), transparent 70%);
+}
+/* Glows fade out at each section's edge, so white sections run together. */
+#growth::before, #invest::before, #offering::before, .band::before {
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 120px, #000 calc(100% - 120px), transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 120px, #000 calc(100% - 120px), transparent);
 }
 
 .trait {
   padding: 24px 24px 26px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-light);
   -webkit-backdrop-filter: var(--glass-blur);
   backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-edge-white);
+  border: 1px solid var(--glass-edge-light);
   border-radius: 22px;
-  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  box-shadow: var(--glass-shadow-light), inset 0 1px 0 rgba(255, 255, 255, 0.9);
   transition: transform 320ms var(--ease), border-color 320ms var(--ease);
 }
 .trait:hover { transform: translateY(-6px); border-color: var(--glass-edge-gold); }
 
-/* Cards inside the navy chapters take the same navy glass, with a gold top edge. */
+/* Cards inside the former navy chapters: light glass, with a gold top edge. */
 .band :is(.step, .goal, .strategy, .standard, .person) {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--glass-edge-white);
+  background: var(--glass-light);
+  border-color: var(--glass-edge-light);
   border-top: 2px solid var(--gold);
-  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  box-shadow: var(--glass-shadow-light), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 .band :is(.step, .goal, .strategy, .standard, .person):hover {
   border-color: var(--glass-edge-gold); border-top-color: var(--gold);
-  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  box-shadow: 0 22px 50px rgba(14, 35, 64, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 /* ── Platform and table: rounded imagery, glass table ──────────────── */
@@ -166,7 +171,7 @@
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .site-head.is-solid { background: var(--navy); }
   .step, .goal, .strategy, .standard, .person, .invest-form { background: var(--white); }
-  .trait { background: rgba(255, 255, 255, 0.06); }
+  .trait, .band :is(.step, .goal, .strategy, .standard, .person) { background: var(--white); }
 }
 @media (prefers-reduced-transparency: reduce) {
   .site-head.is-solid { background: var(--navy); backdrop-filter: none; -webkit-backdrop-filter: none; }

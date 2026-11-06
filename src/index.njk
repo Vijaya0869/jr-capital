@@ -47,7 +47,7 @@ permalink: /
       <div class="stages" data-draw>
         {%- for s in o.stages %}
         <article class="stage">
-          <p style="margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-variant-numeric:tabular-nums">{{ s.code }}</p>
+          <p style="margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-variant-numeric:tabular-nums">{{ s.code }}</p>
           <h3 class="stage-t" style="margin:0;font-size:26px;line-height:1.1">{{ s.title }}</h3>
           <p style="margin:8px 0 0;font-size:14.5px;line-height:1.5;opacity:.8">{{ s.body }}</p>
         </article>
@@ -57,7 +57,7 @@ permalink: /
       <div class="traits">
         {%- for p in o.pillars %}
         <div class="trait">
-          <p style="margin:0;font-family:var(--font-heading);font-weight:600;font-size:34px;line-height:1;white-space:nowrap;color:var(--gold)">{{ p.title }}</p>
+          <p style="margin:0;font-family:var(--font-heading);font-weight:600;font-size:34px;line-height:1;white-space:nowrap;color:var(--gold-deep)">{{ p.title }}</p>
           <p style="margin:12px 0 0;font-size:14.5px;line-height:1.5;opacity:.8">{{ p.body }}</p>
         </div>
         {%- endfor %}
