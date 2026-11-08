@@ -64,13 +64,17 @@
       kids.forEach(function (el, i) { items.push([el, (i % 4) * 120]); });
     });
     if (!items.length) return;
+    // Items appear once they are a fifth of the way up the screen, where the
+    // eye is, and hide again only when fully below it, so they replay each
+    // time the visitor scrolls back down.
     var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.remove('pre'); });
+    }, { rootMargin: '0px 0px -20% 0px' });
+    var gone = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.classList.remove('pre');
-        io.unobserve(e.target);
+        if (!e.isIntersecting && e.boundingClientRect.top > 0) e.target.classList.add('pre');
       });
-    }, { rootMargin: '0px 0px -8% 0px' });
+    });
     var arm = function () {
       window.removeEventListener('scroll', arm);
       var fold = window.innerHeight;
@@ -80,6 +84,7 @@
         el.style.setProperty('--d', it[1] + 'ms');
         el.classList.add('rev', 'pre');
         io.observe(el);
+        gone.observe(el);
       });
     };
     window.addEventListener('scroll', arm, { passive: true });
