@@ -58,12 +58,11 @@
 .btn { border-radius: 999px; }
 .btn-primary { box-shadow: 0 8px 24px rgba(201, 162, 39, 0.28); }
 
-/* ── Light sections: warm orbs behind ivory glass ──────────────────── */
+/* ── Light sections: a soft navy glow behind ivory glass (no gold) ─── */
 #growth, #invest { position: relative; overflow: hidden; isolation: isolate; }
 #growth::before, #invest::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background:
-    radial-gradient(520px 380px at 8% 18%, rgba(201, 162, 39, 0.16), transparent 70%),
     radial-gradient(640px 420px at 92% 82%, rgba(14, 35, 64, 0.10), transparent 70%);
 }
 
@@ -89,14 +88,12 @@
   box-shadow: 0 22px 50px rgba(14, 35, 64, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
-/* ── Former navy sections: three-part glow, now in the light colours ─ */
+/* ── Former navy sections: the same soft navy glow (no gold) ──────── */
 #offering, .band { position: relative; overflow: hidden; isolation: isolate; }
 #offering::before, .band::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background:
-    radial-gradient(700px 480px at 12% 8%, rgba(201, 162, 39, 0.16), transparent 70%),
-    radial-gradient(800px 560px at 90% 60%, rgba(14, 35, 64, 0.10), transparent 70%),
-    radial-gradient(600px 400px at 40% 100%, rgba(201, 162, 39, 0.08), transparent 70%);
+    radial-gradient(800px 560px at 90% 60%, rgba(14, 35, 64, 0.10), transparent 70%);
 }
 /* Glows fade out at each section's edge, so white sections run together. */
 #growth::before, #invest::before, #offering::before, .band::before {
