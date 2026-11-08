@@ -152,8 +152,8 @@ a:hover{color:var(--gold-deep)}
 /* Scroll reveals (R&R's): nothing is hidden at load. main.js marks only items
    still below the fold once the visitor starts scrolling, and unmarks each as
    it arrives. No script, no observer or reduced motion: nothing is ever hidden. */
-.pre{opacity:0;transform:translateY(22px)}
-.rev{transition:opacity 700ms var(--ease),transform 700ms var(--ease);transition-delay:var(--d,0ms)}
+.pre{opacity:0;transform:translateY(48px)}
+.rev{transition:opacity 900ms var(--ease),transform 900ms var(--ease);transition-delay:var(--d,0ms)}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}.pre{opacity:1;transform:none}}
 /* Phones: the 64px desktop gutter would leave too little room for content. */
 @media (max-width:700px){[data-gutter]{padding-left:20px !important;padding-right:20px !important}}

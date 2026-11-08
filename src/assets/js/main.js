@@ -61,7 +61,7 @@
         if (isTrack) Array.prototype.forEach.call(child.children, function (g) { kids.push(g); });
         else kids.push(child);
       });
-      kids.forEach(function (el, i) { items.push([el, (i % 4) * 80]); });
+      kids.forEach(function (el, i) { items.push([el, (i % 4) * 120]); });
     });
     if (!items.length) return;
     var io = new IntersectionObserver(function (entries) {
