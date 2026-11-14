@@ -6,8 +6,8 @@
 {# Chapter number with the gold underline that draws in, then the label. #}
 {% macro rail(num, label) %}
       <div data-rail style="align-self:start">
-        <div class="rail-n"><p style="margin:0;font-family:var(--font-heading);font-weight:600;font-size:clamp(54px,5.4vw,84px);line-height:.8;color:var(--acc-ink);font-variant-numeric:lining-nums tabular-nums">{{ num }}</p><span class="rail-line" aria-hidden="true"></span></div>
-        <p class="rail-l" style="margin:18px 0 0;font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)">{{ label }}</p>
+        <div class="rail-n"><p class="secnum" style="margin:0;font-family:var(--font-heading);font-weight:600;font-size:clamp(54px,5.4vw,84px);line-height:.8;color:var(--acc-ink);font-variant-numeric:lining-nums tabular-nums">{{ num }}</p><span class="rail-line" aria-hidden="true"></span></div>
+        <p class="rail-l" style="margin:18px 0 0;font-size:clamp(17px,1.6vw,24px);line-height:1.3;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">{{ label }}</p>
       </div>
 {%- endmacro %}
 

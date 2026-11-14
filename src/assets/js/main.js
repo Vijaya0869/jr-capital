@@ -90,6 +90,45 @@
     window.addEventListener('scroll', arm, { passive: true });
   }
 
+  /* Section numbers roll from the previous number to their own (01 -> 02)
+     as the section comes up the screen, and reset once fully below it so
+     the roll replays. Numbers already on screen at load stay put. */
+  function numbers() {
+    if (reduced || typeof IntersectionObserver === 'undefined') return;
+    var nums = $$('.secnum').filter(function (el) {
+      var txt = el.textContent.trim();
+      var n = parseInt(txt, 10);
+      if (isNaN(n)) return false;
+      var prev = String(Math.max(n - 1, 0));
+      while (prev.length < txt.length) prev = '0' + prev;
+      var roll = document.createElement('span');
+      roll.className = 'secnum-roll';
+      roll.setAttribute('aria-hidden', 'true');
+      roll.innerHTML = '<span class="secnum-track"><span>' + prev + '</span><span>' + txt + '</span></span>';
+      el.appendChild(roll);
+      el.classList.add('has-roll', 'is-rolled');
+      return true;
+    });
+    if (!nums.length) return;
+    var hide = function (el) { el.classList.add('is-reset'); el.classList.remove('is-rolled'); };
+    var arm = function () {
+      window.removeEventListener('scroll', arm);
+      var fold = window.innerHeight;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('is-reset'); e.target.classList.add('is-rolled'); } });
+      }, { rootMargin: '0px 0px -20% 0px' });
+      var gone = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (!e.isIntersecting && e.boundingClientRect.top > 0) hide(e.target); });
+      });
+      nums.forEach(function (el) {
+        if (el.getBoundingClientRect().top >= fold) hide(el);
+        io.observe(el);
+        gone.observe(el);
+      });
+    };
+    window.addEventListener('scroll', arm, { passive: true });
+  }
+
   /* Platform arms: hover/focus/arrow-key navigation, auto-advance that
      yields to the visitor. */
   function arms() {
@@ -260,6 +299,7 @@
   scrollProgress();
   entrances();
   reveals();
+  numbers();
   arms();
   timeline();
   investorForm();

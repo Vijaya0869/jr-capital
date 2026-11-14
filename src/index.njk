@@ -47,7 +47,7 @@ permalink: /
       <div class="stages" data-draw>
         {%- for s in o.stages %}
         <article class="stage">
-          <p style="margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-variant-numeric:tabular-nums">{{ s.code }}</p>
+          <p style="margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-ink);font-variant-numeric:tabular-nums">{{ s.code }}</p>
           <h3 class="stage-t" style="margin:0;font-size:26px;line-height:1.1">{{ s.title }}</h3>
           <p style="margin:8px 0 0;font-size:14.5px;line-height:1.5;opacity:.8">{{ s.body }}</p>
         </article>
@@ -57,7 +57,7 @@ permalink: /
       <div class="traits">
         {%- for p in o.pillars %}
         <div class="trait">
-          <p style="margin:0;font-family:var(--font-heading);font-weight:600;font-size:34px;line-height:1;white-space:nowrap;color:var(--gold-deep)">{{ p.title }}</p>
+          <p style="margin:0;font-family:var(--font-heading);font-weight:600;font-size:34px;line-height:1;white-space:nowrap;color:var(--acc-ink)">{{ p.title }}</p>
           <p style="margin:12px 0 0;font-size:14.5px;line-height:1.5;opacity:.8">{{ p.body }}</p>
         </div>
         {%- endfor %}
@@ -83,7 +83,7 @@ permalink: /
 {% call chapter("value", "02", c, true) %}<div class="quad">
         {%- for s in c.steps %}
           <article class="slide-item step">
-            <p class="slide-n" style="margin:0 0 14px;font-family:var(--font-heading);font-weight:600;font-size:36px;line-height:1;font-variant-numeric:lining-nums;color:var(--gold-deep)">{{ loop.index }}</p>
+            <p class="slide-n" style="margin:0 0 14px;font-family:var(--font-heading);font-weight:600;font-size:36px;line-height:1;font-variant-numeric:lining-nums;color:var(--acc-ink)">{{ loop.index }}</p>
             <p style="margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-ink)">{{ s.kicker }}</p>
             <h3 style="margin:0 0 10px;font-size:28px;line-height:1.1">{{ s.title }}</h3>
             <p style="margin:0;font-size:16px;line-height:1.6">{{ s.body }}</p>
@@ -99,7 +99,7 @@ permalink: /
         {%- for g in c.goals %}
             <div class="goal">
               <p style="margin:0 0 16px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Goal {{ loop.index | pad2 }}</p>
-              <p style="margin:0 0 12px;font-family:var(--font-heading);font-weight:600;font-size:clamp(30px,3vw,40px);line-height:1;color:var(--gold-deep)">{{ g.word }}</p>
+              <p style="margin:0 0 12px;font-family:var(--font-heading);font-weight:600;font-size:clamp(30px,3vw,40px);line-height:1;color:var(--acc-ink)">{{ g.word }}</p>
               <p style="margin:0;font-size:15px;line-height:1.55;color:var(--muted)">{{ g.body }}</p>
             </div>
         {%- endfor %}
@@ -152,7 +152,7 @@ permalink: /
 {% call chapter("strategies", "06", c, true) %}<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:30px">
         {%- for s in c.strategies %}
           <article class="slide-item strategy">
-            <p class="slide-n" style="margin:0 0 14px;font-family:var(--font-heading);font-weight:600;font-size:36px;line-height:1;font-variant-numeric:lining-nums;color:var(--gold-deep)">{{ s.code }}</p>
+            <p class="slide-n" style="margin:0 0 14px;font-family:var(--font-heading);font-weight:600;font-size:36px;line-height:1;font-variant-numeric:lining-nums;color:var(--acc-ink)">{{ s.code }}</p>
             <p style="margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-ink)">{{ s.kicker }}</p>
             <h3 style="margin:0 0 10px;font-size:28px;line-height:1.1">{{ s.title }}</h3>
             <p style="margin:0;font-size:16px;line-height:1.6">{{ s.body }}</p>

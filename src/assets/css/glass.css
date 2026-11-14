@@ -178,3 +178,21 @@
   .step, .goal, .strategy, .standard, .person, .trait { transition: none; }
   .step:hover, .goal:hover, .strategy:hover, .standard:hover, .person:hover, .trait:hover { transform: none; }
 }
+
+/* Section numbers roll up from the previous number as the section arrives
+   (01 → 02). The real number stays in the flow, invisible, so layout never
+   moves; the rolling copy sits over it (main.js). */
+.secnum.has-roll { position: relative; color: transparent !important; }
+.secnum-roll { position: absolute; left: 0; right: 0; top: -0.12em; bottom: -0.12em; overflow: hidden; color: var(--acc-ink); }
+.secnum-track { display: block; padding-top: 0.12em; transform: translateY(0); transition: transform 1100ms cubic-bezier(0.16, 1, 0.3, 1) 150ms; }
+.secnum-track > span { display: block; height: 0.8em; margin-bottom: 0.3em; }
+.secnum.is-rolled .secnum-track { transform: translateY(-1.1em); }
+.secnum.is-reset .secnum-track { transition: none; }
+
+/* ── Colours: Version 1 (gold buttons, navy accent text), as on rrgp.io ── */
+:root:not([data-theme="dark"]) { --acc-ink: var(--navy); }
+.step, .goal, .strategy, .standard { border-top-color: var(--navy); }
+.squares li::before { background: var(--navy); }
+.tl-step.is-past .tl-n { color: var(--navy); }
+.foot-k { color: var(--navy); }
+.legal-body a { color: var(--navy); }
