@@ -1,0 +1,12 @@
+// Cloudflare Workers: serve the built Eleventy site (_site) as static files.
+// No server code runs; Cloudflare builds with `npm run build`, then
+// `npx wrangler deploy` uploads _site.
+{
+  "name": "jr-capital",
+  "compatibility_date": "2025-11-01",
+  "assets": {
+    "directory": "./_site",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}

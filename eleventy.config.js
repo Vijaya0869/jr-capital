@@ -23,7 +23,7 @@ export default function (eleventyConfig) {
     return { dir: { input: 'src', output: '_site' } };
   }
   // Static files are copied as-is; the CMS admin is a plain HTML app.
-  eleventyConfig.addPassthroughCopy({ 'src/assets': 'assets', 'src/admin': 'admin' });
+  eleventyConfig.addPassthroughCopy({ 'src/assets': 'assets', 'src/admin': 'admin', 'src/_headers': '_headers' });
 
   // Everything editors type in the CMS is escaped; markup lives only in templates.
   eleventyConfig.setNunjucksEnvironmentOptions({ autoescape: true });
